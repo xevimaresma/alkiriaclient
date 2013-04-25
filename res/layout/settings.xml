@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:background="#eeffef">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:id="@+id/textView" android:layout_gravity="center" android:textColor="#000000"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText" android:layout_gravity="center" android:hint="Introduce your name"
+            android:textColorHint="#21806d"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:id="@+id/textView1" android:layout_gravity="center" android:textColor="#000000"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username" android:layout_gravity="center" android:hint="Introduce an username"
+            android:textColorHint="#21806d"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:id="@+id/password" android:layout_gravity="center" android:textColor="#000000"/>
+    <EditText
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/password" android:layout_gravity="center" android:password="true" android:hint="Aa1*-."
+            android:textColorHint="#cf180b"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:id="@+id/mail" android:layout_gravity="center" android:textColor="#000000"/>
+    <EditText
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText" android:layout_gravity="center"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create a new account"
+            android:id="@+id/buttonAccount" android:layout_gravity="center" android:clickable="true"
+            android:singleLine="false"/>
+</LinearLayout>
