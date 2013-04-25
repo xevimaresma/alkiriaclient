@@ -2,8 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:background="#eeffef">
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" android:background="#eeffef">
 
     <TextView
             android:layout_width="wrap_content"
@@ -45,9 +45,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText" android:layout_gravity="center"/>
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Create a new account"
-            android:id="@+id/buttonAccount" android:layout_gravity="center" android:clickable="true"
-            android:singleLine="false"/>
+            android:id="@+id/buttonAccount" android:clickable="true"
+            android:singleLine="false" android:layout_gravity="right"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/button" android:layout_gravity="center_vertical|left"/>
 </LinearLayout>
