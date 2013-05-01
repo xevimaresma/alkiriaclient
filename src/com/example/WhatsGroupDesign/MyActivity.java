@@ -16,6 +16,7 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
 
         Button b1 = (Button)findViewById(R.id.buttonCreate);
+        Button b2 = (Button)findViewById(R.id.buttonAccount);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,6 +24,13 @@ public class MyActivity extends Activity {
                 startActivity(i);
             }
         });
+        /*b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MyActivity.this, Contact.class);
+                startActivity(i);
+            }
+        });*/
 
 
     }

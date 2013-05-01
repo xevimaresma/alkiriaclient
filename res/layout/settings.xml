@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent" android:background="#eeffef">
+              android:layout_width="match_parent"
+              android:baselineAligned="true"
+              android:layout_height="match_parent" android:background="#d3d3d3">
+    <ImageView
+            android:layout_width="157dp"
+            android:layout_height="115dp"
+            android:id="@+id/imageView" android:layout_marginLeft="-1dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_marginTop="30px"
+            android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:id="@+id/textView" android:layout_gravity="center" android:textColor="#000000"/>
     <EditText
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nameText" android:layout_gravity="center"
-            />
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username"
-            android:id="@+id/textView1" android:layout_gravity="center" android:textColor="#000000"/>
+            android:padding="30px"
+            android:hint="name.."
+            android:background="@drawable/shape" android:layout_marginTop="50dp"/>
     <EditText
-            android:layout_width="145dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/username" android:layout_gravity="center"
-            android:textColorHint="#21806d"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:id="@+id/password" android:layout_gravity="center" android:textColor="#000000"/>
+            android:padding="30px"
+            android:hint="username.."
+            android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="30dp"/>
     <EditText
-            android:layout_width="145dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/password" android:layout_gravity="center" android:password="true"
-            android:textColorHint="#cf180b"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:id="@+id/mail" android:layout_gravity="center" android:textColor="#000000"/>
-    <EditText
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText" android:layout_gravity="center"/>
-    <TableLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" android:paddingTop="100px">
+            android:padding="30px"
+            android:hint="mail.."
+            android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="30dp"/>
+    <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" android:paddingTop="100px" android:layout_gravity="center"
+            android:orientation="horizontal" android:layout_marginLeft="30dp">
         <Button
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create a new account"
+                android:text="Create.."
+                android:padding="10dp"
+                android:textColor="#686262"
                 android:id="@+id/buttonAccount" android:clickable="true"
-                android:singleLine="false" android:layout_gravity="right"/>
+                android:singleLine="false" android:layout_gravity="left" android:background="@drawable/shape"
+                android:gravity="center_horizontal"/>
         <Button
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancel" android:clickable="true"
-                android:id="@+id/button" android:layout_gravity="center_vertical"/>
-    </TableLayout>
+                android:padding="10dp"
+                android:textColor="#686262"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/buttonCancel" android:layout_gravity="right" android:background="@drawable/shape"
+                android:gravity="center_horizontal"/>
+    </LinearLayout>
 </LinearLayout>
