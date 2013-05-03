@@ -14,48 +14,52 @@
             android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
 
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:id="@+id/nameText" android:layout_gravity="center"
+            android:id="@+id/name" android:layout_gravity="center"
             android:padding="30px"
             android:hint="name.."
-            android:background="@drawable/shape" android:layout_marginTop="50dp"/>
+            android:background="@drawable/shape" android:layout_marginTop="10dp"/>
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/username" android:layout_gravity="center"
             android:padding="30px"
             android:hint="username.."
-            android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="30dp"/>
+            android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/password" android:layout_gravity="center" android:password="true"
             android:padding="30px"
+            android:hint="password"
+            android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+    <EditText
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/mail" android:layout_gravity="center" android:password="true"
+            android:padding="30px"
             android:hint="mail.."
-            android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="30dp"/>
+            android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
     <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" android:paddingTop="100px" android:layout_gravity="center"
-            android:orientation="horizontal" android:layout_marginLeft="30dp">
+            android:orientation="horizontal"
+            android:layout_width="300dp"
+            android:layout_height="match_parent" android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-17dp">
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create.."
-                android:padding="10dp"
-                android:textColor="#686262"
-                android:id="@+id/buttonAccount" android:clickable="true"
-                android:singleLine="false" android:layout_gravity="left" android:background="@drawable/shape"
-                android:gravity="center_horizontal"/>
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:text="Cancel"
+                android:id="@+id/btnCancel" android:layout_gravity="center_vertical" android:clickable="true"
+                android:background="@drawable/shape" android:layout_marginTop="10dp" android:layout_weight="0"
+                android:textColor="#444444"/>
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cancel" android:clickable="true"
-                android:padding="10dp"
-                android:textColor="#686262"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:id="@+id/buttonCancel" android:layout_gravity="right" android:background="@drawable/shape"
-                android:gravity="center_horizontal"/>
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="Enjoy!!"
+                android:id="@+id/btnCreate" android:layout_gravity="center_vertical" android:clickable="true"
+                android:background="@drawable/shape" android:layout_marginTop="10dp" android:layout_weight="1"
+                android:layout_marginLeft="10dp" android:textColor="#2b4d92"/>
     </LinearLayout>
+
 </LinearLayout>
