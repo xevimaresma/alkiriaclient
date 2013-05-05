@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MyActivity extends Activity implements View.OnClickListener {
 
     private Button b1,b2;
+    private EditText e1,e2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,29 @@ public class MyActivity extends Activity implements View.OnClickListener {
         b2 = (Button)findViewById(R.id.btnAccount);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
+        e1 = (EditText)findViewById(R.id.campoUser);
+        e1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    Toast.makeText(getApplicationContext(), "Introduces your username", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        e2 = (EditText)findViewById(R.id.campoPass);
+
+        //Dependiendo de donde se situe el cursor aparece el tooltip
+
+        e2.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    Toast.makeText(getApplicationContext(), "Introduces your password", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -34,4 +60,5 @@ public class MyActivity extends Activity implements View.OnClickListener {
         }
 
     }
+
 }

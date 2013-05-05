@@ -13,16 +13,31 @@
             android:src="@drawable/logo"
             android:layout_marginTop="30px"
             android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
-    <Button
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click!"
-            android:id="@+id/button" android:layout_gravity="center" android:background="@drawable/shape"
-            android:focusable="false" android:padding="10dp" android:textColor="#686262"/>
-    <Spinner
+            android:id="@+id/campoEstado" android:background="@drawable/shape" android:hint="How are you??"
+            android:layout_gravity="center_horizontal" android:padding="10dp"/>
+    <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/selector" android:gravity="center" android:spinnerMode="dialog"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_height="250dp"
+            android:id="@+id/listaContactos" android:layout_gravity="center"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <Button
+                android:layout_width="80dp"
+                android:layout_height="43dp"
+                android:text="Logout"
+                android:id="@+id/salirContact" android:layout_gravity="right|center_vertical"
+                android:background="@drawable/shape" android:clickable="true" android:textColor="#292d2c"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:text="Enter"
+                android:id="@+id/chatear" android:layout_gravity="center" android:background="@drawable/shape"
+                android:layout_weight="1"/>
+    </LinearLayout>
 
 </LinearLayout>
