@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Communication {
     public static final String STOP = "#quitServer";
@@ -14,10 +16,11 @@ public class Communication {
     private DataOutputStream out = null;
     private Socket client = null;
     
-	public void sendMessage(byte[] msg){
+	public String sendMessage(byte[] msg){
         try {
             System.out.println(msg);
-            client = new Socket("localhost",PORT);
+            //client = new Socket("localhost",PORT);
+            client = new Socket("10.0.2.2",PORT);
             out = new DataOutputStream(client.getOutputStream());
             //Escribim text
             out.writeInt(msg.length);
@@ -25,19 +28,21 @@ public class Communication {
             out.flush();
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             String dades = in.readLine();
-            System.out.println("Resposta: " + dades);
+            //System.out.println("Resposta: " + dades);
+            return dades;
         } catch (UnknownHostException ex) {
-            //Logger.getLogger(AlkiriaClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            //Logger.getLogger(AlkiriaClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 out.close();
                 client.close();
             } catch (IOException ex) {
-                //Logger.getLogger(AlkiriaClient.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
+        return null;
 	}	
 }
