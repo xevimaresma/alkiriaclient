@@ -3,6 +3,9 @@ package com.example.WhatsGroupDesign;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,17 +51,29 @@ public class MyActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v == b1){
-            Intent i = new Intent(MyActivity.this, Dialog.class);
-            startActivity(i);
-            finish();
-        }
-        else if(v == b2){
-            Intent j = new Intent(MyActivity.this, Settings.class);
-            startActivity(j);
-            finish();
+        try{
+            if(v == b1){
+                Intent i = new Intent(MyActivity.this, Dialog.class);
+                startActivity(i);
+                finish();
+            }
+            else if(v == b2){
+                Intent j = new Intent(MyActivity.this, Settings.class);
+                startActivity(j);
+                finish();
+            }
+        }catch (Exception ex){
+              ex.printStackTrace();
         }
 
+
     }
+    /*public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }*/
+
+
 
 }
