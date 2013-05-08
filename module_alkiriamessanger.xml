@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_alkiriamessanger" default="compile.module.alkiriamessanger">
+  <dirname property="module.alkiriamessanger.basedir" file="${ant.file.module_alkiriamessanger}"/>
+  
+  <property name="module.jdk.home.alkiriamessanger" value="${jdk.home.android_2.2_platform}"/>
+  <property name="module.jdk.bin.alkiriamessanger" value="${jdk.bin.android_2.2_platform}"/>
+  <property name="module.jdk.classpath.alkiriamessanger" value="jdk.classpath.android_2.2_platform"/>
+  
+  <property name="compiler.args.alkiriamessanger" value="${compiler.args}"/>
+  
+  <property name="alkiriamessanger.output.dir" value="${module.alkiriamessanger.basedir}/bin/classes"/>
+  <property name="alkiriamessanger.testoutput.dir" value="${module.alkiriamessanger.basedir}/bin/classes"/>
+  
+  <path id="alkiriamessanger.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="alkiriamessanger.module.production.classpath">
+    <path refid="${module.jdk.classpath.alkiriamessanger}"/>
+  </path>
+  
+  <path id="alkiriamessanger.runtime.production.module.classpath">
+    <pathelement location="${alkiriamessanger.output.dir}"/>
+  </path>
+  
+  <path id="alkiriamessanger.module.classpath">
+    <path refid="${module.jdk.classpath.alkiriamessanger}"/>
+    <pathelement location="${alkiriamessanger.output.dir}"/>
+  </path>
+  
+  <path id="alkiriamessanger.runtime.module.classpath">
+    <pathelement location="${alkiriamessanger.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.alkiriamessanger">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.alkiriamessanger">
+    <patternset refid="excluded.from.module.alkiriamessanger"/>
+  </patternset>
+  
+  <path id="alkiriamessanger.module.sourcepath">
+    <dirset dir="${module.alkiriamessanger.basedir}">
+      <include name="src"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.alkiriamessanger" depends="compile.module.alkiriamessanger.production,compile.module.alkiriamessanger.tests" description="Compile module AlkiriaMessanger"/>
+  
+  <target name="compile.module.alkiriamessanger.production" depends="register.custom.compilers" description="Compile module AlkiriaMessanger; production classes">
+    <mkdir dir="${alkiriamessanger.output.dir}"/>
+    <javac2 destdir="${alkiriamessanger.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.alkiriamessanger}/javac">
+      <compilerarg line="${compiler.args.alkiriamessanger}"/>
+      <bootclasspath refid="alkiriamessanger.module.bootclasspath"/>
+      <classpath refid="alkiriamessanger.module.production.classpath"/>
+      <src refid="alkiriamessanger.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.alkiriamessanger"/>
+    </javac2>
+    
+    <copy todir="${alkiriamessanger.output.dir}">
+      <fileset dir="${module.alkiriamessanger.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.alkiriamessanger.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.alkiriamessanger.tests" depends="register.custom.compilers,compile.module.alkiriamessanger.production" description="compile module AlkiriaMessanger; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.alkiriamessanger" description="cleanup module">
+    <delete dir="${alkiriamessanger.output.dir}"/>
+    <delete dir="${alkiriamessanger.testoutput.dir}"/>
+  </target>
+</project>
