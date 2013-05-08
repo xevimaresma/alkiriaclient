@@ -1,5 +1,8 @@
 package com.example.WhatsGroupDesign;
 
+import com.whatsgroup.alkiria.entities.MsgUser;
+import com.whatsgroup.alkiria.utils.Communication;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,9 +52,11 @@ public class MyActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
             if(v == b1){
-                Intent i = new Intent(MyActivity.this, Dialog.class);
-                startActivity(i);
-                finish();
+            	
+            	Toast.makeText(getApplicationContext(), "El teu Token és: " + doLogin(), Toast.LENGTH_SHORT).show();
+                //Intent i = new Intent(MyActivity.this, Dialog.class);
+                //startActivity(i);
+                //finish();
             }
             else if(v == b2){
                 Intent j = new Intent(MyActivity.this, Settings.class);
@@ -65,6 +70,15 @@ public class MyActivity extends Activity implements View.OnClickListener {
         inflater.inflate(R.menu.menu, menu);
         return true;
     }*/
+    
+    private String doLogin(){
+        MsgUser msguser = new MsgUser();
+        msguser.setLogin(e1.getText().toString());
+        msguser.setPass(e2.getText().toString());
+        byte[] msg = msguser.getMessage(MsgUser.TIPUS_USER_LOGIN);
+        Communication c = new Communication();
+        return c.sendMessage(msg);
+    }
 
 
 
