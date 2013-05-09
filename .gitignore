@@ -2,6 +2,7 @@
 /bin/*
 /libs/*
 /gen/*
+/.settings/*
 project.properties
 local.properties
 alkiriamessanger.properties
