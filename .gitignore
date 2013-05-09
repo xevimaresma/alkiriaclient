@@ -1,4 +1,7 @@
-/.idea
-/bin
-/libs
-/gen
+/.idea/*
+/bin/*
+/libs/*
+/gen/*
+project.properties
+local.properties
+alkiriamessanger.properties
