@@ -5,7 +5,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.whatsgroup.alkiria.entities.MsgUser;
 import com.whatsgroup.alkiria.utils.Communication;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
