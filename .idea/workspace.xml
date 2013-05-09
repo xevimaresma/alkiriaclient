@@ -7,7 +7,7 @@
         <option name="deviceConfiguration" value="Portrait" />
         <option name="dockMode" value="" />
         <option name="nightMode" value="notnight" />
-        <option name="targetHashString" value="android-10" />
+        <option name="targetHashString" value="android-17" />
         <option name="theme" value="Theme" />
       </profile>
     </option>
@@ -27,37 +27,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6335a81d-a725-4fb8-948c-13fef4151c3b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Chat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/menu_main.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/menu/menu.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Dialog.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlkiriaMessanger.iml" afterPath="$PROJECT_DIR$/AlkiriaMessanger.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/contact.xml" afterPath="$PROJECT_DIR$/res/layout/contact.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java" afterPath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/whatsgroup/alkiria/utils/Encryption.java" afterPath="$PROJECT_DIR$/src/com/whatsgroup/alkiria/utils/Encryption.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java" afterPath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java" afterPath="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlkiriaMessanger.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368023516269" ignored="false" />
-    <file path="/Settings.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367749672138" ignored="false" />
-    <file path="/MyActivity.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367921173375" ignored="false" />
+    <file path="/Dummy.txt" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368123708659" ignored="false" />
+    <file path="/Settings.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368122462195" ignored="false" />
+    <file path="/MyActivity.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368121615078" ignored="false" />
     <file path="/shape.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367612329921" ignored="false" />
     <file path="/main.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367425993937" ignored="false" />
     <file path="/background.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367419393054" ignored="false" />
-    <file path="/settings.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367919660855" ignored="false" />
-    <file path="/fragment.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367749148402" ignored="false" />
+    <file path="/settings.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368122959023" ignored="false" />
+    <file path="/fragment.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368123199432" ignored="false" />
     <file path="/strings.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367769655899" ignored="false" />
-    <file path="/Dialog.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367609680620" ignored="false" />
+    <file path="/Dialog.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368121434610" ignored="false" />
     <file path="/dialog.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367606479701" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367925840514" ignored="false" />
     <file path="/Dummy.regexp" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367612237349" ignored="false" />
     <file path="/Dummy.xpath" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367612237349" ignored="false" />
-    <file path="/Contact.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367857213830" ignored="false" />
+    <file path="/Contact.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368119302672" ignored="false" />
     <file path="/contact.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367770884319" ignored="false" />
     <file path="/resources.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367768055209" ignored="false" />
     <file path="/ListaContactos.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367769619788" ignored="false" />
     <file path="/Activity.txt.ft" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367858295586" ignored="false" />
-    <file path="/menu.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367858943550" ignored="false" />
+    <file path="/menu.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368096528482" ignored="false" />
     <file path="$USER_HOME$/untitled1/res/values/strings.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367920983518" ignored="false" />
     <file path="$USER_HOME$/untitled1/AndroidManifest.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367920983518" ignored="false" />
     <file path="$USER_HOME$/untitled1/src/com/example/untitled1/MyActivity.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367920983945" ignored="false" />
     <file path="$USER_HOME$/untitled1/res/layout/main.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367920983945" ignored="false" />
     <file path="$USER_HOME$/untitled1/build.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367920983945" ignored="false" />
     <file path="$USER_HOME$/untitled1/gen/com/example/untitled1/BuildConfig.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1367921009319" ignored="false" />
+    <file path="/Encryption.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368027555443" ignored="false" />
+    <file path="/menu_dialog.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368121234885" ignored="false" />
+    <file path="/menu_contact.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368120619006" ignored="false" />
+    <file path="/menu_settings.xml" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368120046136" ignored="false" />
+    <file path="/Chat.java" changelist="6335a81d-a725-4fb8-948c-13fef4151c3b" time="1368121435374" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +93,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -114,6 +129,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -127,19 +143,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="75" selection-start="2135" selection-end="2135" vertical-scroll-proportion="0.0">
+            <state line="83" column="22" selection-start="2875" selection-end="2875" vertical-scroll-proportion="2.366505">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <file leaf-file-name="Encryption.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/whatsgroup/alkiria/utils/Encryption.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.6012024">
+            <state line="164" column="95" selection-start="6486" selection-end="6486" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contact.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="1" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,42 +173,11 @@
       <file leaf-file-name="Settings.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="54" column="40" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Dialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="1" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/contact.xml">
-          <provider editor-type-id="text-editor">
-            <state line="10" column="40" selection-start="472" selection-end="504" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
-          <provider editor-type-id="text-editor">
-            <state line="11" column="76" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -195,6 +189,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Oscar" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -206,22 +205,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="/XML Fragment (shape.xml:106).xml" />
-        <option value="$PROJECT_DIR$/res/drawable/shape.xml" />
-        <option value="$USER_HOME$/workspace/Semo-UI/moviweb/page-types/list.json" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/res/values/resources.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/ListaContactos.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java" />
-        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java" />
-        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/sd.java" />
         <option value="$PROJECT_DIR$/res/menu/menu.xml" />
-        <option value="$PROJECT_DIR$/res/layout/settings.xml" />
-        <option value="$PROJECT_DIR$/gen/com/example/WhatsGroupDesign/R.java" />
+        <option value="$PROJECT_DIR$/res/menu/menu_main.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java" />
+        <option value="$PROJECT_DIR$/res/layout-ldpi/contact.xml" />
+        <option value="$PROJECT_DIR$/res/menu/menu_settings.xml" />
+        <option value="$PROJECT_DIR$/res/menu/menu_contact.xml" />
+        <option value="$PROJECT_DIR$/res/menu/menu_dialog.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Dialog.java" />
+        <option value="$PROJECT_DIR$/res/menu/menu_chat.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Chat.java" />
         <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/contact.xml" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java" />
+        <option value="$PROJECT_DIR$/res/layout-mdpi/main.xml" />
+        <option value="$PROJECT_DIR$/res/layout-mdpi/dialog.xml" />
+        <option value="$PROJECT_DIR$/res/layout-mdpi/contact.xml" />
+        <option value="$PROJECT_DIR$/res/layout-mdpi/settings.xml" />
       </list>
     </option>
   </component>
@@ -277,8 +276,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -311,25 +308,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alkiria" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlkiriaMessanger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alkiriaclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="WhatsGroupDesign" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlkiriaMessanger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alkiriaclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/workspace/Semo-UI/moviweb/page-types/list.full.json" />
+    <property name="recentsLimit" value="5" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/workspace/Semo-UI/moviweb/page-types/list.full.json" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="alkiriamessanger" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -348,6 +387,15 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/res/drawable-mdpi" />
+      <recent name="$PROJECT_DIR$/res/drawable-ldpi" />
+      <recent name="$PROJECT_DIR$/res/drawable-hdpi" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.AlkiriaMessanger">
     <configuration default="false" name="com.example.WhatsGroupDesign in AlkiriaMessanger" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true">
@@ -402,6 +450,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -428,19 +489,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -500,8 +548,8 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="AVD_for_Nexus_One_by_Google" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -632,34 +680,34 @@
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19418961" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14748785" sideWeight="0.83027524" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19359756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39908257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16972478" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19418961" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721713" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19877675" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.4938838" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1758509" sideWeight="0.8058104" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17125382" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14748785" sideWeight="0.8058104" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1758509" sideWeight="0.6727829" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16972478" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15397082" sideWeight="0.83027524" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39908257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32721713" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19817074" sideWeight="0.52512157" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.4938838" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15397082" sideWeight="0.8058104" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721713" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39908257" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -669,7 +717,7 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
         <are-packages-shown value="false" />
@@ -705,7 +753,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadidos menus, iconos y diseños para diferentes resoluciones" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -728,6 +776,7 @@
     <MESSAGE value="Nuevas actividades" />
     <MESSAGE value="Nuevos cambios, listView añadida" />
     <MESSAGE value="." />
+    <MESSAGE value="Añadidos menus, iconos y diseños para diferentes resoluciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -737,100 +786,134 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gen/com/example/WhatsGroupDesign/Manifest.java">
+    <entry file="file://$PROJECT_DIR$/res/drawable/shape.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/com/example/WhatsGroupDesign/R.java">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="85" selection-start="71" selection-end="153" vertical-scroll-proportion="0.09917355" />
+        <state line="3" column="55" selection-start="161" selection-end="161" vertical-scroll-proportion="0.08737864">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+    <entry file="file://$PROJECT_DIR$/res/layout-ldpi/main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ant.properties">
+    <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="23" column="103" selection-start="617" selection-end="617" vertical-scroll-proportion="0.26213592">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_contact.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="7" column="44" selection-start="327" selection-end="327" vertical-scroll-proportion="0.2038835">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.properties">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="10" column="7" selection-start="319" selection-end="319" vertical-scroll-proportion="0.29126215">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_chat.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1586716" />
+        <state line="5" column="30" selection-start="234" selection-end="234" vertical-scroll-proportion="0.14563107">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+    <entry file="file://$PROJECT_DIR$/res/layout-ldpi/contact.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="76" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
+    <entry file="file://$PROJECT_DIR$/res/layout-mdpi/settings.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="41" column="34" selection-start="2018" selection-end="2018" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout-mdpi/contact.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-mdpi/dialog.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-mdpi/main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="75" selection-start="2135" selection-end="2135" vertical-scroll-proportion="0.0">
+        <state line="75" column="1" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/whatsgroup/alkiria/utils/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="95" selection-start="6486" selection-end="6486" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="54" column="40" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/Dialog.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/WhatsGroupDesign/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="1" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
-      <provider editor-type-id="text-editor">
-        <state line="11" column="76" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/contact.xml">
-      <provider editor-type-id="text-editor">
-        <state line="10" column="40" selection-start="472" selection-end="504" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/WhatsGroupDesign/com/example/WhatsGroupDesign/R.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="101" selection-start="363" selection-end="363" vertical-scroll-proportion="0.36072144" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.6012024">
+        <state line="83" column="22" selection-start="2875" selection-end="2875" vertical-scroll-proportion="2.366505">
           <folding />
         </state>
       </provider>

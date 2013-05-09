@@ -11,23 +11,20 @@ import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-
 /**
- *
- * @author PC
- */
 
-/* La idea de funcionament és la següent:
+ La idea de funcionament ï¿½s la segï¿½ent:
 
 * 1. Per un costat, haurem de veure d'on treiem la clau. Podria ser el token mateix.
 * 2. Llavors, s'instancia un objecte Encryption, i se li indica una clau (via constructor o setClau)
-* 3. En cas de no tenir clau, hauríem de mirar si fem un throw exception o donem un missatge.
+* 3. En cas de no tenir clau, haurï¿½em de mirar si fem un throw exception o donem un missatge.
 * 4. Llavors, es crida a obj.encrypt i obj.decrypt per encriptar i desencriptar.
-* 4a. Aquests dos mètodes els deixo sense retornar (publiquen el resultat a un atribut) per poder retornar excepcions o missatges sense problemes de tipus (byte, etc...)
-* 5. Els mètodes getMsgEncriptat i getMsgDesencriptat tenen els valors de l'encrypt i el decrypt.
-* 
-* Segurament necessita una mica més d'estudi, però ens pot valer per anar provant. De moment deixo el main per fer proves.
-*/
+* 4a. Aquests dos mï¿½todes els deixo sense retornar (publiquen el resultat a un atribut) per poder retornar excepcions o missatges sense problemes de tipus (byte, etc...)
+* 5. Els mï¿½todes getMsgEncriptat i getMsgDesencriptat tenen els valors de l'encrypt i el decrypt.
+* */
+//Segurament necessita una mica mï¿½s d'estudi, perï¿½ ens pot valer per anar provant. De moment deixo el main per fer proves.
+
+
 public class Encryption {
     
     public static final String CLAU = "Hola";
@@ -119,14 +116,15 @@ public class Encryption {
     		keyBytes[k++] = keyBytes[j++];
     	}
         
-    	/*final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+SecretKey key = new SecretKeySpec(keyBytes, "DESede");
     	final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
-    	final Cipher decipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
-    	decipher.init(Cipher.DECRYPT_MODE, key, iv);*/
+    	Cipher decipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
+    	decipher.init(Cipher.DECRYPT_MODE, key, iv);
+
         DESedeKeySpec keySpec = new DESedeKeySpec(keyBytes);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("DESede");
-        SecretKey key = factory.generateSecret(keySpec);
-        final Cipher decipher = Cipher.getInstance("DESede/ECB/NoPadding");
+        key = factory.generateSecret(keySpec);
+        decipher = Cipher.getInstance("DESede/ECB/NoPadding");
         decipher.init(Cipher.DECRYPT_MODE, key);
     	// final byte[] encData = new
     	// sun.misc.BASE64Decoder().decodeBuffer(message);
@@ -145,14 +143,15 @@ public class Encryption {
     		keyBytes[k++] = keyBytes[j++];
     	}
         
-    	/*final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+SecretKey key = new SecretKeySpec(keyBytes, "DESede");
     	final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
-    	final Cipher decipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
-    	decipher.init(Cipher.DECRYPT_MODE, key, iv);*/
+    	Cipher decipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
+    	decipher.init(Cipher.DECRYPT_MODE, key, iv);
+
         DESedeKeySpec keySpec = new DESedeKeySpec(keyBytes);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("DESede");
-        SecretKey key = factory.generateSecret(keySpec);
-        final Cipher decipher = Cipher.getInstance("DESede/ECB/NoPadding");
+        key = factory.generateSecret(keySpec);
+        decipher = Cipher.getInstance("DESede/ECB/NoPadding");
         decipher.init(Cipher.DECRYPT_MODE, key);
     	// final byte[] encData = new
     	// sun.misc.BASE64Decoder().decodeBuffer(message);

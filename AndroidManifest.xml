@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Dialog" android:label="Chat"/>
+        <activity android:name=".Chat" android:label="Chat"/>
         <activity android:name=".Settings" android:label="Configuración"/>
         <activity android:name=".Contact" android:label="ListaContactos"/>
     </application>

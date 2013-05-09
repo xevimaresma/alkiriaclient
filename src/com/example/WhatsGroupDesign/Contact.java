@@ -3,6 +3,9 @@ package com.example.WhatsGroupDesign;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
@@ -44,11 +47,29 @@ public class Contact extends Activity implements View.OnClickListener{
             finish();
         }
         else if (v == btnEntrar){
-            Intent n = new Intent(Contact.this, Dialog.class);
+            Intent n = new Intent(Contact.this, Chat.class);
             Toast.makeText(getApplicationContext(),"Enjoy!!!", Toast.LENGTH_LONG).show();
             startActivity(n);
             finish();
         }
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_contact, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.searchContact:
+                Intent i = new Intent(Contact.this, Chat.class);
+                startActivity(i);
+                break;
+            case R.id.updateContact:
+                Toast.makeText(getApplicationContext(),"Updated!!", Toast.LENGTH_SHORT).show();
+                finish();
+        }
+        return false;
     }
 
 

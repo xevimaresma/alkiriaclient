@@ -1,5 +1,8 @@
 package com.example.WhatsGroupDesign;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import com.whatsgroup.alkiria.entities.MsgUser;
 import com.whatsgroup.alkiria.utils.Communication;
 
@@ -52,11 +55,10 @@ public class MyActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
             if(v == b1){
-            	
-            	Toast.makeText(getApplicationContext(), "El teu Token Ès: " + doLogin(), Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent(MyActivity.this, Dialog.class);
-                //startActivity(i);
-                //finish();
+            	//Toast.makeText(getApplicationContext(), "El teu Token es: " + doLogin(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MyActivity.this, Chat.class);
+                startActivity(i);
+                finish();
             }
             else if(v == b2){
                 Intent j = new Intent(MyActivity.this, Settings.class);
@@ -65,12 +67,29 @@ public class MyActivity extends Activity implements View.OnClickListener {
             }
 
     }
-    /*public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
-    }*/
-    
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.ap1:
+              Intent i = new Intent(MyActivity.this, Settings.class);
+              startActivity(i);
+                break;
+            case R.id.ap2:
+                Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
+                finish();
+        }
+        return false;
+    }
+
+
+
+     //Clases a√±adidas al proyecto
+
     private String doLogin(){
         MsgUser msguser = new MsgUser();
         msguser.setLogin(e1.getText().toString());
@@ -78,6 +97,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         byte[] msg = msguser.getMessage(MsgUser.TIPUS_USER_LOGIN);
         Communication c = new Communication();
         return c.sendMessage(msg);
+
     }
 
 

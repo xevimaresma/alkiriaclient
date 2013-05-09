@@ -3,6 +3,9 @@ package com.example.WhatsGroupDesign;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -35,6 +38,23 @@ public class Settings extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Account is created!", Toast.LENGTH_SHORT).show();
             startActivity(l);
         }
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.ap2:
+            Intent i = new Intent(Settings.this, MyActivity.class);
+            startActivity(i);
+            break;
+        }
+        return false;
     }
 
 }
