@@ -49,6 +49,7 @@ public class Chat extends Activity {
             case R.id.undo:
                 Intent i = new Intent(Chat.this, Contact.class);
                 startActivity(i);
+                finish();
                 break;
             case R.id.add:
                 Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();

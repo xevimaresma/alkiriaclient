@@ -21,7 +21,7 @@ public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
     private Button btnEntrar;
-    private String[]contactos = {"Rafa","Xevi","Miquel"};
+    //private String[]contactos = {"Rafa","Xevi","Miquel"};
     
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> names = new ArrayList<String>();
@@ -136,6 +136,7 @@ public class Contact extends Activity implements View.OnClickListener{
             case R.id.searchContact:
                 Intent i = new Intent(Contact.this, Chat.class);
                 startActivity(i);
+                finish();
                 break;
             case R.id.updateContact:
                 Toast.makeText(getApplicationContext(),"Updating!!", Toast.LENGTH_SHORT).show();
@@ -151,6 +152,7 @@ public class Contact extends Activity implements View.OnClickListener{
         i.addCategory("android.intent.category.LAUNCHER");
         i.addCategory("android.intent.category.DEFAULT");
         startActivity(i);
+        finish();
     }
 
 

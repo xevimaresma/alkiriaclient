@@ -32,11 +32,13 @@ public class Settings extends Activity implements View.OnClickListener {
         if(v == btnCancel){
             Intent k = new Intent(Settings.this, MyActivity.class);
             startActivity(k);
+            finish();
         }
         if(v ==btnCreate){
             Intent l = new Intent(Settings.this,Contact.class);
             Toast.makeText(getApplicationContext(), "Account is created!", Toast.LENGTH_SHORT).show();
             startActivity(l);
+            finish();
         }
     }
     public boolean onCreateOptionsMenu(Menu menu){
@@ -52,6 +54,7 @@ public class Settings extends Activity implements View.OnClickListener {
             case R.id.exit:
             Intent i = new Intent(Settings.this, MyActivity.class);
             startActivity(i);
+            finish();
             break;
         }
         return false;

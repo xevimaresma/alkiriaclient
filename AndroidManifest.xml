@@ -16,6 +16,6 @@
         </activity>
         <activity android:name=".Chat" android:label="Chat"/>
         <activity android:name=".Settings" android:label="Configuración"/>
-        <activity android:name=".Contact" android:label="ListaContactos"/>
+        <activity android:name=".Contact" android:label="Lista de Contactos"/>
     </application>
 </manifest> 

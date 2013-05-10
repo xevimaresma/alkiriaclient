@@ -1,18 +1,17 @@
 package com.example.WhatsGroupDesign;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import com.whatsgroup.alkiria.entities.MsgUser;
-import com.whatsgroup.alkiria.utils.CommunicationTask;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.whatsgroup.alkiria.entities.MsgUser;
+import com.whatsgroup.alkiria.utils.CommunicationTask;
 
 public class MyActivity extends Activity implements View.OnClickListener {
 
@@ -81,23 +80,24 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.ap2:
                 Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
+                Intent j = new Intent(Intent.ACTION_MAIN);
                 finish();
+
         }
         return false;
     }
 
-
-
      //Clases añadidas al proyecto
 
-    /*private String doLogin(){
+    private String doLogin(){
         MsgUser msguser = new MsgUser();
         msguser.setLogin(e1.getText().toString());
         msguser.setPass(e2.getText().toString());
         byte[] msg = msguser.getMessage(MsgUser.TIPUS_USER_LOGIN);
         CommunicationTask c = new CommunicationTask();
-        c.execute(msg);
-    }*/
+        return c.sendMessage(msg);
+
+    }
 
 
 
