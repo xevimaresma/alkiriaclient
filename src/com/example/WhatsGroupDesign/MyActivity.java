@@ -61,23 +61,24 @@ public class MyActivity extends Activity implements View.OnClickListener {
 
     }
     
-    protected class CommunicationTask extends AsyncTask<byte[], Integer, String>{
+    protected class CommunicationTask extends AsyncTask<byte[], Void, String>{
         public static final String STOP = "#quitServer";
         public static final int PORT = 35421;
         private BufferedReader in = null;
         private DataOutputStream out = null;
         private Socket client = null;
         
-    	public String sendMessage(byte[] msg){
+    	@Override
+    	protected String doInBackground(byte[]... params) {
             try {
-                System.out.println(msg);
+                System.out.println(params[0]);
                 //client = new Socket("localhost",PORT);
                 //client = new Socket("10.0.2.2",PORT);
                 client = new Socket("alkiria.xevimr.eu",PORT);
                 out = new DataOutputStream(client.getOutputStream());
                 //Escribim text
-                out.writeInt(msg.length);
-                out.write(msg);
+                out.writeInt(params[0].length);
+                out.write(params[0]);
                 out.flush();
                 in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String dades = in.readLine();
@@ -97,13 +98,6 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 
             }
             return null;
-    	}
-
-    	@Override
-    	protected String doInBackground(byte[]... params) {
-    		// TODO Auto-generated method stub
-    		Toast.makeText(getApplicationContext(), "El teu Token es: " + params.toString(), Toast.LENGTH_SHORT).show();
-    		return null;
     	}	
     }
     
@@ -113,9 +107,9 @@ public class MyActivity extends Activity implements View.OnClickListener {
             if(v == b1){
             	doLogin();
             	//Toast.makeText(getApplicationContext(), "El teu Token es: " + doLogin(), Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent(MyActivity.this, Chat.class);
-                //startActivity(i);
-                //finish();
+                Intent i = new Intent(MyActivity.this, Chat.class);
+                startActivity(i);
+                finish();
             }
             else if(v == b2){
                 Intent j = new Intent(MyActivity.this, Settings.class);
