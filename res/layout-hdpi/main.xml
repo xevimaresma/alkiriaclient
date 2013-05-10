@@ -21,7 +21,7 @@
             android:id="@+id/campoUser"
             android:background="@drawable/shape"
             android:hint="Username"
-            android:textSize="15dp" android:maxLength="20" android:autoText="false"/>
+            android:textSize="15dp" android:maxLength="20" android:autoText="false" android:maxLines="1"/>
 
 
     <EditText
@@ -33,12 +33,12 @@
             android:id="@+id/campoPass" android:password="true"
             android:background="@drawable/shape"
             android:hint="Password"
-            android:textSize="15dp" android:maxLength="20" android:layout_marginBottom="30dp"/>
+            android:textSize="15dp" android:maxLength="20" android:layout_marginBottom="30dp" android:maxLines="1"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_gravity="center"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="80dp">
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -49,7 +49,7 @@ public class Settings extends Activity implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
-            case R.id.ap2:
+            case R.id.exit:
             Intent i = new Intent(Settings.this, MyActivity.class);
             startActivity(i);
             break;

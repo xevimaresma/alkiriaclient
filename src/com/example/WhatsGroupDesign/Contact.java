@@ -1,6 +1,7 @@
 package com.example.WhatsGroupDesign;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -66,11 +67,21 @@ public class Contact extends Activity implements View.OnClickListener{
                 startActivity(i);
                 break;
             case R.id.updateContact:
-                Toast.makeText(getApplicationContext(),"Updated!!", Toast.LENGTH_SHORT).show();
-                finish();
+                Toast.makeText(getApplicationContext(),"Updating!!", Toast.LENGTH_SHORT).show();
+                showContacts();
         }
         return false;
     }
+
+    public void showContacts() {
+        Intent i = new Intent();
+        i.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
+        i.setAction("android.intent.action.MAIN");
+        i.addCategory("android.intent.category.LAUNCHER");
+        i.addCategory("android.intent.category.DEFAULT");
+        startActivity(i);
+    }
+
 
 
 }

@@ -6,21 +6,35 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+//import android.widget.ScrollView;
 import android.widget.Toast;
 
-import static com.example.WhatsGroupDesign.R.layout.dialog;
+import static com.example.WhatsGroupDesign.R.layout.chat;
 
 public class Chat extends Activity {
 
-    private Button cancel;
-    private Button create;
+    private EditText message;
+    private Button enviar;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(dialog);
-
-        //cancel = (Button)findViewById(R.id.btnCancel);
+        setContentView(chat);
+        message = (EditText)findViewById(R.id.message);
+        enviar = (Button)findViewById(R.id.sendMessage);
+        //ScrollView sv = (ScrollView) findViewById(R.id.messageList);
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == enviar){
+                    String msg = message.getText().toString();
+                    Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_LONG).show();
+                    //Aquí tengo que empezar a añadir el contenido al scrollview
+                }
+            }
+        });
 
     }
     public boolean onCreateOptionsMenu(Menu menu){

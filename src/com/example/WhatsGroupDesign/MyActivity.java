@@ -80,12 +80,12 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.ap2:
                 Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
+                Intent j = new Intent(Intent.ACTION_MAIN);
                 finish();
+
         }
         return false;
     }
-
-
 
      //Clases añadidas al proyecto
 
