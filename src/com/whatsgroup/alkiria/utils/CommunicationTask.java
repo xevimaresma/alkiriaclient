@@ -9,7 +9,9 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Communication {
+import android.os.AsyncTask;
+
+public class CommunicationTask extends AsyncTask<byte[], Integer, String>{
     public static final String STOP = "#quitServer";
     public static final int PORT = 35421;
     private BufferedReader in = null;
@@ -31,18 +33,24 @@ public class Communication {
             //System.out.println("Resposta: " + dades);
             return dades;
         } catch (UnknownHostException ex) {
-            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CommunicationTask.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CommunicationTask.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 out.close();
                 client.close();
             } catch (IOException ex) {
-                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CommunicationTask.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
         return null;
+	}
+
+	@Override
+	protected String doInBackground(byte[]... params) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }
