@@ -5,59 +5,64 @@
               android:baselineAligned="true"
               android:layout_height="match_parent" android:background="#d3d3d3">
 
-    <LinearLayout
-            android:orientation="vertical"
+    <ImageView
             android:layout_width="157dp"
-            android:layout_height="115dp" android:background="@drawable/logo"
-            android:layout_marginTop="30px" android:layout_marginLeft="-1dp"
-            android:layout_weight="0" android:layout_gravity="center">
-    </LinearLayout>
+            android:layout_height="115dp"
+            android:id="@+id/imageView" android:layout_marginLeft="-1dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_marginTop="30px"
+            android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
 
     <EditText
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/name" android:layout_gravity="center"
-            android:padding="30px"
+            android:padding="10dp"
             android:hint="name.."
-            android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+            android:background="@drawable/shape" android:layout_marginTop="10dp" android:textSize="15dp"
+            android:maxLines="1" android:maxLength="15"/>
     <EditText
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/username" android:layout_gravity="center"
-            android:padding="30px"
+            android:padding="10dp"
             android:hint="username.."
-            android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+            android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"
+            android:textSize="15dp" android:maxLength="15" android:maxLines="1"/>
     <EditText
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/password" android:layout_gravity="center" android:password="true"
-            android:padding="30px"
+            android:padding="10dp"
             android:hint="password"
-            android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+            android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"
+            android:textSize="15dp" android:maxLength="10" android:maxLines="1"/>
     <EditText
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/mail" android:layout_gravity="center" android:password="true"
-            android:padding="30px"
-            android:hint="mail.."
-            android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+            android:padding="10dp"
+            android:hint="retype.."
+            android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"
+            android:textSize="15dp" android:maxLength="10" android:maxLines="1"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="300dp"
-            android:layout_height="match_parent" android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-17dp">
+            android:layout_height="56dp" android:layout_gravity="center|bottom"
+            android:layout_marginTop="70dp">
         <Button
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:text="Cancel"
-                android:id="@+id/btnCancel" android:layout_gravity="center_vertical" android:clickable="true"
+                android:id="@+id/btnCancel" android:clickable="true"
                 android:background="@drawable/shape" android:layout_marginTop="10dp" android:layout_weight="0"
-                android:textColor="#444444"/>
+                android:textColor="#444444" android:layout_gravity="center"/>
         <Button
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:text="Enjoy!!"
-                android:id="@+id/btnCreate" android:layout_gravity="center_vertical" android:clickable="true"
+                android:id="@+id/btnCreate" android:layout_gravity="center" android:clickable="true"
                 android:background="@drawable/shape" android:layout_marginTop="10dp" android:layout_weight="1"
                 android:layout_marginLeft="10dp" android:textColor="#2b4d92"/>
     </LinearLayout>

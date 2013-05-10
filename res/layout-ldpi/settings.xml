@@ -5,13 +5,15 @@
               android:baselineAligned="true"
               android:layout_height="match_parent" android:background="#d3d3d3">
 
-    <LinearLayout
-            android:orientation="vertical"
+    <ImageView
             android:layout_width="157dp"
-            android:layout_height="115dp" android:background="@drawable/logo"
-            android:layout_marginTop="30px" android:layout_marginLeft="-1dp"
-            android:layout_weight="0" android:layout_gravity="center">
-    </LinearLayout>
+            android:layout_height="115dp"
+            android:id="@+id/imageView" android:layout_marginLeft="-1dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_marginTop="30px"
+            android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
+
 
     <EditText
             android:layout_width="140dp"
@@ -39,7 +41,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/mail" android:layout_gravity="center" android:password="true"
             android:padding="30px"
-            android:hint="mail.."
+            android:hint="retype.."
             android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
     <LinearLayout
             android:orientation="horizontal"

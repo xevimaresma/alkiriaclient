@@ -17,15 +17,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/campoEstado" android:background="@drawable/shape" android:hint="How are you??"
-            android:layout_gravity="center_horizontal" android:padding="10dp"/>
+            android:layout_gravity="center_horizontal" android:padding="10dp" android:maxLines="1"
+            android:maxLength="15"/>
     <ListView
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
+            android:layout_height="253dp"
             android:id="@+id/listaContactos" android:layout_gravity="right|center_vertical"/>
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center|bottom">
         <Button
                 android:layout_width="80dp"
                 android:layout_height="43dp"
@@ -34,7 +35,7 @@
                 android:background="@drawable/shape" android:clickable="true" android:textColor="#292d2c"/>
         <Button
                 android:layout_width="wrap_content"
-                android:layout_height="43dp"
+                android:layout_height="match_parent"
                 android:text="Enter"
                 android:id="@+id/chatear" android:layout_gravity="center" android:background="@drawable/shape"
                 android:layout_weight="1"/>

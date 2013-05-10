@@ -6,4 +6,5 @@
             android:icon="@drawable/search"/>
     <item android:id="@+id/updateContact" android:title="Update"
             android:icon="@drawable/refresh"/>
+
 </menu>
