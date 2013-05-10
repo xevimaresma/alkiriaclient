@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#d3d3d3">
+    <ImageView
+            android:layout_width="137dp"
+            android:layout_height="95dp"
+            android:id="@+id/imageView" android:layout_marginLeft="-1dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_marginTop="20dp"
+            android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/campoUser"
+            android:background="@drawable/shape"
+            android:hint="Username"
+            android:textSize="15dp" android:maxLength="20" android:autoText="false"/>
+
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/campoPass" android:password="true"
+            android:background="@drawable/shape"
+            android:hint="Password"
+            android:textSize="15dp" android:maxLength="20"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Login"
+                android:textSize="10dp"
+                android:textColor="#686262"
+                android:id="@+id/btnCreate" android:layout_gravity="left"
+                android:background="@drawable/shape"
+                android:clickable="true"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Create an account"
+                android:textSize="10dp"
+                android:textColor="#686262"
+                android:id="@+id/btnAccount" android:layout_gravity="right"
+                android:clickable="true"
+                android:background="@drawable/shape"
+                android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+

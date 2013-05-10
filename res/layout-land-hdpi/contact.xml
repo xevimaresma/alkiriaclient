@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:baselineAligned="true"
+              android:layout_height="match_parent" android:background="#d3d3d3">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="73dp"
+                android:layout_height="60dp"
+                android:id="@+id/imageView" android:layout_marginLeft="-1dp"
+                android:layout_gravity="center_horizontal|right"
+                android:src="@drawable/logo"
+                android:layout_marginTop="30px"
+                android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/campoEstado" android:background="@drawable/shape" android:hint="How are you??"
+                android:layout_gravity="center" android:padding="3dp" android:maxLength="20"
+                android:maxLines="1" android:textSize="10dp" android:textIsSelectable="false"/>
+    </LinearLayout>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:id="@+id/listaContactos" android:layout_gravity="right|center_vertical"
+            android:scrollbars="vertical"
+            />
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+        <Button
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:text="Logout"
+                android:id="@+id/salirContact" android:layout_gravity="left|center_vertical"
+                android:background="@drawable/shape" android:clickable="true" android:textColor="#292d2c"
+                android:enabled="true" android:layout_weight="0"/>
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="Enter"
+                android:id="@+id/chatear" android:layout_gravity="center|bottom" android:background="@drawable/shape"
+                android:enabled="true"/>
+    </LinearLayout>
+
+</LinearLayout>
