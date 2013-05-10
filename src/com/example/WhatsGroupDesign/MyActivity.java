@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -68,6 +69,17 @@ public class MyActivity extends Activity implements View.OnClickListener {
         private DataOutputStream out = null;
         private Socket client = null;
         
+        @Override
+        protected void onPostExecute(String dades) {
+        	if(dades.equals("LOGIN ERROR")){
+            	Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya introduits no són vàlids.", Toast.LENGTH_SHORT).show();
+        	}else{
+                Intent i = new Intent(MyActivity.this, Chat.class);
+                startActivity(i);
+                finish();
+        	}
+        }
+        
     	@Override
     	protected String doInBackground(byte[]... params) {
             try {
@@ -107,9 +119,9 @@ public class MyActivity extends Activity implements View.OnClickListener {
             if(v == b1){
             	doLogin();
             	//Toast.makeText(getApplicationContext(), "El teu Token es: " + doLogin(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MyActivity.this, Chat.class);
-                startActivity(i);
-                finish();
+                //Intent i = new Intent(MyActivity.this, Chat.class);
+                //startActivity(i);
+                //finish();
             }
             else if(v == b2){
                 Intent j = new Intent(MyActivity.this, Settings.class);
@@ -149,7 +161,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         CommunicationTask c = new CommunicationTask();
         c.execute(msg);
     }
-
+    
 
 
 }

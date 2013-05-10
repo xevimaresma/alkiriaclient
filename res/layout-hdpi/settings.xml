@@ -41,7 +41,7 @@
     <EditText
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:id="@+id/mail" android:layout_gravity="center" android:password="true"
+            android:id="@+id/retype" android:layout_gravity="center" android:password="true"
             android:padding="10dp"
             android:hint="retype.."
             android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"
