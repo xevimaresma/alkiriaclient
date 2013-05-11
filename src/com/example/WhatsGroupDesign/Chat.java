@@ -4,12 +4,17 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.example.WhatsGroupDesign.MyActivity.CommunicationTask;
+import com.whatsgroup.alkiria.utils.Encryption;
 import com.whatsgroup.alkiria.utils.MsgSender;
 
 import android.app.Activity;
@@ -23,7 +28,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-//import android.widget.ScrollView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.example.WhatsGroupDesign.R.layout.chat;
@@ -39,21 +45,122 @@ public class Chat extends Activity {
         public static final int PORT = 9876;
         
         @Override
-        protected void onPostExecute(String dades) {   
-        	message = (EditText)findViewById(R.id.message);
-        	message.setText(dades);        	        
+        protected void onPostExecute(String dades) {
+        	dades=dades.trim();
+        	if (dades.equals("OK")) {
+        		message = (EditText)findViewById(R.id.message);
+        		message.setText(null);
+        	} else if (dades.equals("KO")) {
+        		Toast.makeText(getApplicationContext(),"ERROR! Torna-ho a intentar.", Toast.LENGTH_LONG).show();
+        	} else {
+        		Toast.makeText(getApplicationContext(),"Resposta: "+dades, Toast.LENGTH_LONG).show();
+        	}
+        	
         }
         
     	@Override
     	protected String doInBackground(byte[]... params) {
+    		String dadesRebudes;
             try {
-                missEnvia.enviamentUDP(params[0]);                
+                dadesRebudes=missEnvia.enviamentUDP(params[0]);                
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDP.class.getName()).log(Level.SEVERE, null, ex);
+                dadesRebudes="ERROR";
             } 
-            return null;
+            return dadesRebudes;
     	}	
     }
+    
+    protected class UDPListener extends AsyncTask<Void, Void, Void>{        
+        public static final int PORT = 9876;
+        
+        @Override
+    	protected Void doInBackground(Void...params) {
+        	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
+    		while (true) {
+    			byte[] buf = new byte[196];    			
+    			try {
+    				    				    				
+    				DatagramSocket socket = new DatagramSocket(PORT);
+    				DatagramPacket packet = new DatagramPacket(buf, buf.length);
+    				socket.receive(packet);
+    				//Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();
+    				ByteBuffer buffer = ByteBuffer.wrap(packet.getData());
+    				InetAddress IPAddress = packet.getAddress();
+    	            int port = packet.getPort();    	            
+    	            int tipus = buffer.getInt();
+    	            byte[] arrtoken = new byte[64];
+    	            buffer.get(arrtoken);
+    	            byte[] arrdesti = new byte[64];
+    	            buffer.get(arrdesti);
+    	            byte[] arrmsg = new byte[64];
+    	            buffer.get(arrmsg);                
+    	            String token=new String(arrtoken).trim();  
+    	            Encryption encripta=new Encryption();
+    	            encripta.setClau(token);
+    	            String desti=new String(arrdesti);
+    	            //String missatgeS=new String(arrmsg);
+    	            /*try {
+    	            	encripta.decrypt(arrmsg);
+    	            } catch (Exception e) { } 
+    	            String missatgeS=encripta.getMsgDesencriptat();
+    	            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;*/
+    	            String dadestxt="Missatge de "+token+" a "+desti+".";
+    	            TextView tv = new TextView(getApplicationContext());
+    				sv.addView(tv);
+    				message = (EditText)findViewById(R.id.message);    				
+    				
+    				tv.setText(dadestxt);    				
+    				message.setText(dadestxt);
+    				
+    			} catch (Exception e) {    				    				
+    			}
+    		}            
+    	}	
+    }
+    
+    protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, byte[]>{        
+        public static final int PORT = 9876;
+        
+        @Override
+        protected void onPostExecute(byte[] dades) {        	
+        	/*
+        	 * Aquest codi haur‡ d'anar al UDPListener, perÚ no aconsegueixo que escolti, el UDP de dalt!!!!
+			*/
+        	ByteBuffer buffer = ByteBuffer.wrap(dades);
+            int tipus = buffer.getInt();
+            byte[] arrtoken = new byte[64];
+            buffer.get(arrtoken);
+            byte[] arrdesti = new byte[64];
+            buffer.get(arrdesti);
+            byte[] arrmsg = new byte[64];
+            buffer.get(arrmsg);                
+            String token=new String(arrtoken).trim();  
+            Encryption encripta=new Encryption();
+            encripta.setClau(token);
+            String desti=new String(arrdesti);
+            //String missatgeS=new String(arrmsg);
+            try {
+            	encripta.decrypt(arrmsg);
+            } catch (Exception e) { } 
+            String missatgeS=encripta.getMsgDesencriptat();
+            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
+            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();
+        }
+        
+    	@Override
+    	protected byte[] doInBackground(byte[]... params) {
+    		byte[] dadesRebudes;
+            try {
+                dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+            } catch (Exception ex) {
+                Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
+                dadesRebudes=null;
+            } 
+            return dadesRebudes;
+    	}	
+    }
+
     
     
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +171,8 @@ public class Chat extends Activity {
         Toast.makeText(getApplicationContext(),mailContacte, Toast.LENGTH_LONG).show();
         message = (EditText)findViewById(R.id.message);
         enviar = (Button)findViewById(R.id.sendMessage);
+        UDPListener servUDP=new UDPListener();
+        servUDP.execute();
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,8 +181,8 @@ public class Chat extends Activity {
                     //SharedPreferences prefs = getPreferences(MODE_PRIVATE);
                     SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
                     String token= prefs.getString("tokenAlkiria", null);
-                    if (token==null) { token="1234"; }
-                    Toast.makeText(getApplicationContext(),"A enviar ("+token+"): "+msg, Toast.LENGTH_LONG).show();
+                    if (token==null) { token="0000"; }
+                    //Toast.makeText(getApplicationContext(),"A enviar ("+token+"): "+msg, Toast.LENGTH_LONG).show();
                     
 
                     missEnvia=new MsgSender(msg,token);
@@ -85,7 +194,7 @@ public class Chat extends Activity {
                     	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
                     	e.printStackTrace();
                     }
-                    Toast.makeText(getApplicationContext(),"Enviado o no?", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"Enviado o no?", Toast.LENGTH_LONG).show();
                     
                     //Aqu√≠ tengo que empezar a a√±adir el contenido al scrollview
                 }
@@ -108,7 +217,18 @@ public class Chat extends Activity {
                 finish();
                 break;
             case R.id.add:
-                Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();
+            	SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
+                String token= prefs.getString("tokenAlkiria", null);
+                missEnvia=new MsgSender("",token);
+                try {
+                	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);
+                	CommunicationTaskUDPByte c = new CommunicationTaskUDPByte();
+                    c.execute(missEnviaByte);
+                } catch (Exception e) {
+                	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
+                	e.printStackTrace();
+                }        
                 //finish();
         }
         return false;

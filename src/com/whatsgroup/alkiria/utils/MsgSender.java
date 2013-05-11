@@ -6,6 +6,7 @@ import java.net.*;
 
 public class MsgSender {
 	private String servidor="alkiria.xevimr.eu";
+	//private String servidor="192.168.1.171";
     public static final int TIPUS_ENVIA_MSG = 2;
     public static final int TIPUS_DEMANA_MSG = 3;
     public static final int TIPUS_LLIURA_MSG = 4;
