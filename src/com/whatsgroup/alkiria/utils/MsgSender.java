@@ -5,6 +5,7 @@ import java.io.*;
 import java.net.*;
 
 public class MsgSender {
+	private String servidor="alkiria.xevimr.eu";
     public static final int TIPUS_ENVIA_MSG = 2;
     public static final int TIPUS_DEMANA_MSG = 3;
     public static final int TIPUS_LLIURA_MSG = 4;
@@ -70,13 +71,13 @@ public class MsgSender {
     }
     
     public String enviamentUDP(byte[] msg){
-        try {            
-            System.out.println(new String(msg));
+        try {                       
             byte[] sendData = new byte[196];
             byte[] receiveData = new byte[1024]; 
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
             DatagramSocket clientSocket = new DatagramSocket();
-            InetAddress IPAddress = InetAddress.getByName("alkiria.xevimr.eu");
+            //InetAddress IPAddress = InetAddress.getByName("alkiria.xevimr.eu");                        
+            InetAddress IPAddress = InetAddress.getByName(servidor);
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
             clientSocket.send(sendPacket);
             DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
@@ -88,6 +89,24 @@ public class MsgSender {
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
+        }
+    }
+    
+    public byte[] enviamentUDPByte(byte[] msg){
+        try {                       
+            byte[] sendData = new byte[196];
+            byte[] receiveData = new byte[1024];             
+            DatagramSocket clientSocket = new DatagramSocket();
+            InetAddress IPAddress = InetAddress.getByName(servidor);                        
+            //InetAddress IPAddress = InetAddress.getByName("192.168.1.171");
+            DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
+            clientSocket.send(sendPacket);
+            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            clientSocket.receive(receivePacket);
+            return receivePacket.getData();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     

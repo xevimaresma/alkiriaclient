@@ -22,7 +22,8 @@ public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
     private Button btnEntrar;
-    private String[]contactos = {"Loading phone contacts","Please wait"};
+    //private String[] contactos = {"Loading phone contacts","Please wait"};
+    private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com"};
     
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> names = new ArrayList<String>();
@@ -95,8 +96,8 @@ public class Contact extends Activity implements View.OnClickListener{
         btnSalir.setOnClickListener(this);
         btnEntrar = (Button)findViewById(R.id.chatear);
         btnEntrar.setOnClickListener(this);
-        carregaContactes tCarregaContactes = new carregaContactes();
-        tCarregaContactes.execute();
+        //carregaContactes tCarregaContactes = new carregaContactes();
+        //tCarregaContactes.execute();
         ListView lv = (ListView) findViewById(R.id.listaContactos);
         lv.setClickable(false);
         lv.setFocusable(false);
@@ -105,8 +106,12 @@ public class Contact extends Activity implements View.OnClickListener{
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         	@Override
         	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
-                Log.e("Click: ", " in "+position);
+               /* Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
+                Log.e("Click: ", " in "+position);*/
+        		Intent n = new Intent(Contact.this, Chat.class);
+            	n.putExtra("contacto",(String) parent.getItemAtPosition(position));
+            	startActivity(n);
+            	finish();
             }
         });        
     }
