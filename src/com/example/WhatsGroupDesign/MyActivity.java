@@ -162,7 +162,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
         switch (item.getItemId()){
             case R.id.ap1:
               Intent i = new Intent(MyActivity.this, Settings.class);
-              startActivity(i);              
+              startActivity(i);
+              finish();
             break;
             case R.id.ap2:
                 Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
