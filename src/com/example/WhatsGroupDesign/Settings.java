@@ -61,7 +61,7 @@ public class Settings extends Activity implements View.OnClickListener {
             if(password.getText().toString().equals(retype.getText().toString())){
         		createUser();
         	}else{
-                Toast.makeText(getApplicationContext(), "La verificació de password no coincideix.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "La verificaciÃ³ de password no coincideix.", Toast.LENGTH_SHORT).show();
         	}
         }
     }
@@ -103,7 +103,7 @@ public class Settings extends Activity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String dades) {
         	if(dades.equals("LOGIN ERROR")){
-            	Toast.makeText(getApplicationContext(), "Error en la creació de l'usuari.", Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "Error en la creaciÃ³ de l'usuari.", Toast.LENGTH_SHORT).show();
         	}else{
         		SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
         		editor.putString("loginAlkiria", username.getText().toString());

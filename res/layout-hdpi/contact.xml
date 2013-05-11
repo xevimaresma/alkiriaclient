@@ -21,7 +21,7 @@
             android:maxLength="15"/>
     <ListView
             android:layout_width="wrap_content"
-            android:layout_height="253dp"
+            android:layout_height="243dp"
             android:id="@+id/listaContactos" android:layout_gravity="right|center_vertical"/>
     <LinearLayout
             android:orientation="horizontal"

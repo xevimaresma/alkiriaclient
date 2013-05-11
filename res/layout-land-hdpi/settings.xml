@@ -20,39 +20,41 @@
             android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp">
         <EditText
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:hint="name.."
+                android:id="@+id/mail"
+                android:hint="mail.."
                 android:background="@drawable/shape" android:padding="5dp" android:layout_gravity="center_horizontal"
-                android:maxLines="10"/>
+                android:maxLines="1" android:maxLength="30" android:minWidth="140dp"/>
         <EditText
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/username" android:layout_gravity="right"
                 android:padding="5dp"
                 android:hint="username.."
                 android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp" android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
         <EditText
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/password" android:layout_gravity="center_horizontal" android:password="true"
                 android:padding="5dp"
                 android:hint="password"
-                android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"/>
+                android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"
+                android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
         <EditText
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/retype" android:layout_gravity="center_horizontal" android:password="true"
                 android:padding="5dp"
                 android:hint="retype.."
-                android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginLeft="10dp"/>
+                android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginLeft="10dp"
+                android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"

@@ -3,6 +3,7 @@ package com.example.WhatsGroupDesign;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import android.widget.*;
 public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
+    //ProgressDialog dialogo;
     private Button btnEntrar;
     //private String[] contactos = {"Loading phone contacts","Please wait"};
     private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com"};
@@ -143,9 +145,14 @@ public class Contact extends Activity implements View.OnClickListener{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.searchContact:
+                ProgressDialog pds = ProgressDialog.show(Contact.this,"Searching!","...Calm!!",true);
+                pds.setCancelable(true);
              break;
             case R.id.updateContact:
-                Toast.makeText(getApplicationContext(),"Updating!!", Toast.LENGTH_SHORT).show();                
+                //Determinar la duración y la busqueda, pero este es el código a implementar
+                ProgressDialog pdu = ProgressDialog.show(Contact.this,"Updating!","...Calm!!",true);
+                //Determina si el usuario puede cancelar la operación
+                pdu.setCancelable(true);
         }
         return false;
     }

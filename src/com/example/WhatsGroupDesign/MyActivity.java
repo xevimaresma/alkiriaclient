@@ -40,12 +40,12 @@ public class MyActivity extends Activity implements View.OnClickListener {
         b2 = (Button)findViewById(R.id.btnAccount);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
-        e1 = (EditText)findViewById(R.id.campoUser);
+        e1 = (EditText)findViewById(R.id.campoMail);
         e1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    Toast.makeText(getApplicationContext(), "Introduces your username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Introduce your username", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -83,7 +83,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String dades) {
         	if(dades.equals("LOGIN ERROR")){
-            	Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya introduits no són vàlids.", Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya introduits no son vÃ¡lids.", Toast.LENGTH_SHORT).show();
         	}else{
         		SharedPreferences.Editor editor= getSharedPreferences("alkiria", MODE_PRIVATE).edit();        		
         		editor.putString("loginAlkiria", e1.getText().toString());

@@ -15,37 +15,37 @@
             android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
 
     <EditText
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/name" android:layout_gravity="center"
+            android:id="@+id/mail" android:layout_gravity="center"
             android:padding="10dp"
-            android:hint="name.."
+            android:hint="mail.."
             android:background="@drawable/shape" android:layout_marginTop="10dp" android:textSize="15dp"
-            android:maxLines="1" android:maxLength="15"/>
+            android:maxLines="1" android:maxLength="30" android:minWidth="140dp"/>
     <EditText
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/username" android:layout_gravity="center"
             android:padding="10dp"
             android:hint="username.."
             android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"
-            android:textSize="15dp" android:maxLength="15" android:maxLines="1"/>
+            android:textSize="15dp" android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
     <EditText
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/password" android:layout_gravity="center" android:password="true"
             android:padding="10dp"
             android:hint="password"
             android:textColorHint="#cf5c40" android:background="@drawable/shape" android:layout_marginTop="10dp"
-            android:textSize="15dp" android:maxLength="10" android:maxLines="1"/>
+            android:textSize="15dp" android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
     <EditText
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/retype" android:layout_gravity="center" android:password="true"
             android:padding="10dp"
             android:hint="retype.."
             android:textColorHint="#cf180b" android:background="@drawable/shape" android:layout_marginTop="10dp"
-            android:textSize="15dp" android:maxLength="10" android:maxLines="1"/>
+            android:textSize="15dp" android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="300dp"

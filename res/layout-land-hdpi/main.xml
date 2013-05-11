@@ -18,10 +18,11 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/campoUser"
+            android:id="@+id/campoMail"
             android:background="@drawable/shape"
-            android:hint="Username"
-            android:textSize="15dp" android:maxLength="20" android:autoText="false"/>
+            android:hint="Mail.."
+            android:textSize="15dp" android:maxLength="30" android:autoText="false" android:maxLines="1"
+            android:minWidth="95dp"/>
 
 
     <EditText

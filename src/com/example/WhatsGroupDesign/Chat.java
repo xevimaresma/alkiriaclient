@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.example.WhatsGroupDesign.MyActivity.CommunicationTask;
-import com.whatsgroup.alkiria.utils.Encryption;
 import com.whatsgroup.alkiria.utils.MsgSender;
 
 import android.app.Activity;
@@ -41,76 +39,19 @@ public class Chat extends Activity {
         public static final int PORT = 9876;
         
         @Override
-        protected void onPostExecute(String dades) {
-        	dades=dades.trim();
-        	if (dades.equals("OK")) {
-        		message = (EditText)findViewById(R.id.message);
-        		message.setText(null);
-        	} else if (dades.equals("KO")) {
-        		Toast.makeText(getApplicationContext(),"ERROR! Torna-ho a intentar.", Toast.LENGTH_LONG).show();
-        	} else {
-        		Toast.makeText(getApplicationContext(),"Resposta: "+dades, Toast.LENGTH_LONG).show();
-        	}
-        	
+        protected void onPostExecute(String dades) {   
+        	message = (EditText)findViewById(R.id.message);
+        	message.setText(dades);        	        
         }
         
     	@Override
     	protected String doInBackground(byte[]... params) {
-    		String dadesRebudes;
             try {
-                dadesRebudes=missEnvia.enviamentUDP(params[0]);                
+                missEnvia.enviamentUDP(params[0]);                
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDP.class.getName()).log(Level.SEVERE, null, ex);
-                dadesRebudes="ERROR";
             } 
-            return dadesRebudes;
-    	}	
-    }
-    
-    protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, byte[]>{        
-        public static final int PORT = 9876;
-        
-        @Override
-        protected void onPostExecute(byte[] dades) {        	
-        	/*if (dades.equals("OK")) {
-        		message = (EditText)findViewById(R.id.message);
-        		message.setText(null);
-        	} else if (dades.equals("KO")) {
-        		Toast.makeText(getApplicationContext(),"ERROR! Torna-ho a intentar.", Toast.LENGTH_LONG).show();
-        	} else {
-        		Toast.makeText(getApplicationContext(),"Resposta: "+dades, Toast.LENGTH_LONG).show();
-        	}*/
-        	ByteBuffer buffer = ByteBuffer.wrap(dades);
-            int tipus = buffer.getInt();
-            byte[] arrtoken = new byte[64];
-            buffer.get(arrtoken);
-            byte[] arrdesti = new byte[64];
-            buffer.get(arrdesti);
-            byte[] arrmsg = new byte[64];
-            buffer.get(arrmsg);                
-            String token=new String(arrtoken).trim();  
-            Encryption encripta=new Encryption();
-            encripta.setClau(token);
-            String desti=new String(arrdesti);
-            //String missatgeS=new String(arrmsg);
-            try {
-            	encripta.decrypt(arrmsg);
-            } catch (Exception e) { } 
-            String missatgeS=encripta.getMsgDesencriptat();
-            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
-            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();
-        }
-        
-    	@Override
-    	protected byte[] doInBackground(byte[]... params) {
-    		byte[] dadesRebudes;
-            try {
-                dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
-            } catch (Exception ex) {
-                Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
-                dadesRebudes=null;
-            } 
-            return dadesRebudes;
+            return null;
     	}	
     }
     
@@ -131,8 +72,8 @@ public class Chat extends Activity {
                     //SharedPreferences prefs = getPreferences(MODE_PRIVATE);
                     SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
                     String token= prefs.getString("tokenAlkiria", null);
-                    if (token==null) { token="000"; }
-                    //Toast.makeText(getApplicationContext(),"Enviant...", Toast.LENGTH_LONG).show();
+                    if (token==null) { token="1234"; }
+                    Toast.makeText(getApplicationContext(),"A enviar ("+token+"): "+msg, Toast.LENGTH_LONG).show();
                     
 
                     missEnvia=new MsgSender(msg,token);
@@ -143,7 +84,8 @@ public class Chat extends Activity {
                     } catch (Exception e) {
                     	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
                     	e.printStackTrace();
-                    }                    
+                    }
+                    Toast.makeText(getApplicationContext(),"Enviado o no?", Toast.LENGTH_LONG).show();
                     
                     //Aquí tengo que empezar a añadir el contenido al scrollview
                 }
@@ -166,18 +108,7 @@ public class Chat extends Activity {
                 finish();
                 break;
             case R.id.add:
-                //Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();
-            	SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
-                String token= prefs.getString("tokenAlkiria", null);
-                missEnvia=new MsgSender("",token);
-                try {
-                	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);
-                	CommunicationTaskUDPByte c = new CommunicationTaskUDPByte();
-                    c.execute(missEnviaByte);
-                } catch (Exception e) {
-                	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
-                	e.printStackTrace();
-                }                    
+                Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();
                 //finish();
         }
         return false;
