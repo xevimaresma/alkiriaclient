@@ -114,7 +114,7 @@ public class Contact extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if(v == btnSalir){
-        	SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+        	SharedPreferences.Editor editor= getSharedPreferences("alkiria", MODE_PRIVATE).edit();
     		editor.clear();    		
     		editor.commit();
             Intent m = new Intent(Contact.this, MyActivity.class);
