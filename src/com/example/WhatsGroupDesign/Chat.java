@@ -71,7 +71,7 @@ public class Chat extends Activity {
     	}	
     }
     
-    protected class UDPListener extends AsyncTask<Void, Void, Void>{        
+/*    protected class UDPListener extends AsyncTask<Void, Void, Void>{        
         public static final int PORT = 9876;
         
         @Override
@@ -104,7 +104,7 @@ public class Chat extends Activity {
     	            	encripta.decrypt(arrmsg);
     	            } catch (Exception e) { } 
     	            String missatgeS=encripta.getMsgDesencriptat();
-    	            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;*/
+    	            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
     	            String dadestxt="Missatge de "+token+" a "+desti+".";
     	            TextView tv = new TextView(getApplicationContext());
     				sv.addView(tv);
@@ -118,7 +118,7 @@ public class Chat extends Activity {
     		}            
     	}	
     }
-    
+*/   
     protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, byte[]>{        
         public static final int PORT = 9876;
         
@@ -161,6 +161,75 @@ public class Chat extends Activity {
     	}	
     }
 
+    protected class CommunicationTaskUDPByteActualitza extends AsyncTask<byte[], Void, byte[]>{        
+        public static final int PORT = 9876;
+        
+        @Override
+        protected void onPostExecute(byte[] dades) {
+        	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
+
+			ByteBuffer buffer = ByteBuffer.wrap(dades);
+            int tipus = buffer.getInt();
+            byte[] arrtoken = new byte[64];
+            buffer.get(arrtoken);
+            byte[] arrdesti = new byte[64];
+            buffer.get(arrdesti);
+            byte[] arrmsg = new byte[64];
+            buffer.get(arrmsg);                
+            String token=new String(arrtoken).trim();  
+            Encryption encripta=new Encryption();
+            encripta.setClau(token);
+            try {
+            	encripta.decrypt(arrmsg);
+            } catch (Exception e) { } 
+            
+            String desti=new String(arrdesti);
+            String dadestxt="Missatge de "+token+" a "+desti+".";
+            String missatgeS=encripta.getMsgDesencriptat();
+        	TextView tv = new TextView(getApplicationContext());
+			sv.addView(tv);
+			message = (EditText)findViewById(R.id.message);    				
+			
+			tv.setText(missatgeS);    				
+			//message.setText(dadestxt);
+        	
+        	/*
+        	 * Aquest codi haurà d'anar al UDPListener, però no aconsegueixo que escolti, el UDP de dalt!!!!
+			*/
+ /*       	ByteBuffer buffer = ByteBuffer.wrap(dades);
+            int tipus = buffer.getInt();
+            byte[] arrtoken = new byte[64];
+            buffer.get(arrtoken);
+            byte[] arrdesti = new byte[64];
+            buffer.get(arrdesti);
+            byte[] arrmsg = new byte[64];
+            buffer.get(arrmsg);                
+            String token=new String(arrtoken).trim();  
+            Encryption encripta=new Encryption();
+            encripta.setClau(token);
+            String desti=new String(arrdesti);
+            //String missatgeS=new String(arrmsg);
+            try {
+            	encripta.decrypt(arrmsg);
+            } catch (Exception e) { } 
+            String missatgeS=encripta.getMsgDesencriptat();
+            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
+            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();
+*/            
+        }
+        
+    	@Override
+    	protected byte[] doInBackground(byte[]... params) {
+    		byte[] dadesRebudes;
+            try {
+                dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+            } catch (Exception ex) {
+                Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
+                dadesRebudes=null;
+            } 
+            return dadesRebudes;
+    	}	
+    }
     
     
     public void onCreate(Bundle savedInstanceState) {
@@ -171,8 +240,8 @@ public class Chat extends Activity {
         Toast.makeText(getApplicationContext(),mailContacte, Toast.LENGTH_LONG).show();
         message = (EditText)findViewById(R.id.message);
         enviar = (Button)findViewById(R.id.sendMessage);
-        UDPListener servUDP=new UDPListener();
-        servUDP.execute();
+        //UDPListener servUDP=new UDPListener();
+        //servUDP.execute();
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,7 +292,7 @@ public class Chat extends Activity {
                 missEnvia=new MsgSender("",token);
                 try {
                 	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);
-                	CommunicationTaskUDPByte c = new CommunicationTaskUDPByte();
+                	CommunicationTaskUDPByteActualitza c = new CommunicationTaskUDPByteActualitza();
                     c.execute(missEnviaByte);
                 } catch (Exception e) {
                 	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();

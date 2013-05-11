@@ -111,6 +111,22 @@ public class MsgSender {
         }
     }
     
+    public void enviamentUDPByteSenseResposta(byte[] msg){
+        try {                       
+            byte[] sendData = new byte[196];
+            byte[] receiveData = new byte[1024];             
+            DatagramSocket clientSocket = new DatagramSocket();
+            InetAddress IPAddress = InetAddress.getByName(servidor);                        
+            //InetAddress IPAddress = InetAddress.getByName("192.168.1.171");
+            DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
+            clientSocket.send(sendPacket);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
     public void arreglaCadena() {
         String[] partsCadena;
         partsCadena=this.missatge.split("\\|\\|END\\|\\|");
