@@ -14,6 +14,7 @@ import com.whatsgroup.alkiria.entities.MsgUser;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,7 +58,7 @@ public class Settings extends Activity implements View.OnClickListener {
         if(v ==btnCreate){
             //Toast.makeText(getApplicationContext(), "Pass: " + password.getText(), Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), "ReType: " + retype.getText(), Toast.LENGTH_SHORT).show();
-            if(password.getText() == retype.getText()){
+            if(password.getText().toString().equals(retype.getText().toString())){
         		createUser();
         	}else{
                 Toast.makeText(getApplicationContext(), "La verificació de password no coincideix.", Toast.LENGTH_SHORT).show();
@@ -104,6 +105,10 @@ public class Settings extends Activity implements View.OnClickListener {
         	if(dades.equals("LOGIN ERROR")){
             	Toast.makeText(getApplicationContext(), "Error en la creació de l'usuari.", Toast.LENGTH_SHORT).show();
         	}else{
+        		SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+        		editor.putString("loginAlkiria", username.getText().toString());
+        		editor.putString("passAlkiria", password.getText().toString());
+        		editor.commit();
             	Intent l = new Intent(Settings.this,Contact.class);
                 Toast.makeText(getApplicationContext(), "Account is created!", Toast.LENGTH_SHORT).show();
                 startActivity(l);

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
     private Button btnEntrar;
-    //private String[]contactos = {"Rafa","Xevi","Miquel"};
+    private String[]contactos = {"Loading phone contacts","Please wait"};
     
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> names = new ArrayList<String>();
@@ -41,7 +42,7 @@ public class Contact extends Activity implements View.OnClickListener{
                     String email = cur1.getString(cur1.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
                     Log.e("Email", email);
                     if(email!=null){
-                        names.add(name);
+                        names.add(email);
                     }                    
                 }                 
                 cur1.close();
@@ -69,15 +70,17 @@ public class Contact extends Activity implements View.OnClickListener{
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(Contact.this, android.R.layout.simple_list_item_1,nomsContactes);
             ListView lv = (ListView) findViewById(R.id.listaContactos);
             lv.setAdapter(adapter);
-            lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
+            lv.setClickable(false);
+            lv.setFocusable(false);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            	@Override
+            	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    /*Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
+                    Log.e("Click: ", " in "+position+" i "+(String) parent.getItemAtPosition(position));*/
+                    Intent n = new Intent(Contact.this, Chat.class);
+                	n.putExtra("contacto",(String) parent.getItemAtPosition(position));
+                	startActivity(n);
+                	finish();
                 }
             });
             Contact.this.setProgressBarIndeterminateVisibility(false);
@@ -94,25 +97,26 @@ public class Contact extends Activity implements View.OnClickListener{
         btnEntrar.setOnClickListener(this);
         carregaContactes tCarregaContactes = new carregaContactes();
         tCarregaContactes.execute();
-        /*ListView lv = (ListView) findViewById(R.id.listaContactos);
+        ListView lv = (ListView) findViewById(R.id.listaContactos);
+        lv.setClickable(false);
+        lv.setFocusable(false);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,contactos);                
-        lv.setAdapter(adapter);
-        lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        lv.setAdapter(adapter); 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        	@Override
+        	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
+                Log.e("Click: ", " in "+position);
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
+        });        
     }
 
     @Override
     public void onClick(View v) {
         if(v == btnSalir){
+        	SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+    		editor.clear();    		
+    		editor.commit();
             Intent m = new Intent(Contact.this, MyActivity.class);
             Toast.makeText(getApplicationContext(), "See you later!!", Toast.LENGTH_SHORT).show();
             startActivity(m);
@@ -134,27 +138,12 @@ public class Contact extends Activity implements View.OnClickListener{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.searchContact:
-                Intent i = new Intent(Contact.this, Chat.class);
-                startActivity(i);
-                finish();
-                break;
+             break;
             case R.id.updateContact:
-                Toast.makeText(getApplicationContext(),"Updating!!", Toast.LENGTH_SHORT).show();
-                showContacts();
+                Toast.makeText(getApplicationContext(),"Updating!!", Toast.LENGTH_SHORT).show();                
         }
         return false;
     }
-
-    public void showContacts() {
-        Intent i = new Intent();
-        i.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
-        i.setAction("android.intent.action.MAIN");
-        i.addCategory("android.intent.category.LAUNCHER");
-        i.addCategory("android.intent.category.DEFAULT");
-        startActivity(i);
-        finish();
-    }
-
 
 
 }

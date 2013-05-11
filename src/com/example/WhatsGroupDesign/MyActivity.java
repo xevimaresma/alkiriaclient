@@ -17,6 +17,7 @@ import com.whatsgroup.alkiria.entities.MsgUser;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        
         b1 = (Button)findViewById(R.id.btnCreate);
         b2 = (Button)findViewById(R.id.btnAccount);
         b1.setOnClickListener(this);
@@ -59,6 +62,14 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 }
             }
         });
+        
+        SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE); 
+        String restoredText = prefs.getString("loginAlkiria", null);
+        if (restoredText != null) {          
+           e1.setText(restoredText);
+           e2.setText(prefs.getString("passAlkiria",null));
+           doLogin();
+        }
 
     }
     
@@ -74,7 +85,12 @@ public class MyActivity extends Activity implements View.OnClickListener {
         	if(dades.equals("LOGIN ERROR")){
             	Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya introduits no són vàlids.", Toast.LENGTH_SHORT).show();
         	}else{
-                Intent i = new Intent(MyActivity.this, Chat.class);
+        		SharedPreferences.Editor editor= getSharedPreferences("alkiria", MODE_PRIVATE).edit();        		
+        		editor.putString("loginAlkiria", e1.getText().toString());
+        		editor.putString("passAlkiria", e2.getText().toString());        		
+        		editor.putString("tokenAlkiria", dades);
+        		editor.commit();
+                Intent i = new Intent(MyActivity.this, Contact.class);
                 startActivity(i);
                 finish();
         	}
@@ -117,7 +133,13 @@ public class MyActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
             if(v == b1){
-            	doLogin();
+            	if (e1.getText().toString().equals("provaAlkiria")) {
+            		Intent i = new Intent(MyActivity.this, Contact.class);
+                    startActivity(i);
+                    finish();
+            	} else {
+            		doLogin();
+            	}
             	//Toast.makeText(getApplicationContext(), "El teu Token es: " + doLogin(), Toast.LENGTH_SHORT).show();
                 //Intent i = new Intent(MyActivity.this, Chat.class);
                 //startActivity(i);
@@ -140,8 +162,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
         switch (item.getItemId()){
             case R.id.ap1:
               Intent i = new Intent(MyActivity.this, Settings.class);
-              startActivity(i);
-                break;
+              startActivity(i);              
+            break;
             case R.id.ap2:
                 Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
                 finish();

@@ -69,19 +69,25 @@ public class MsgSender {
         return buffer.array();
     }
     
-    public void enviamentUDP(byte[] msg){
+    public String enviamentUDP(byte[] msg){
         try {            
             System.out.println(new String(msg));
             byte[] sendData = new byte[196];
             byte[] receiveData = new byte[1024]; 
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
             DatagramSocket clientSocket = new DatagramSocket();
-            InetAddress IPAddress = InetAddress.getByName("localhost");
+            InetAddress IPAddress = InetAddress.getByName("alkiria.xevimr.eu");
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
             clientSocket.send(sendPacket);
+            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            clientSocket.receive(receivePacket);
+            String modifiedSentence = new String(receivePacket.getData());
+            //System.out.println("FROM SERVER:" + modifiedSentence);            
             clientSocket.close();
+            return modifiedSentence;
         } catch (Exception e) {
             e.printStackTrace();
+            return "ERROR";
         }
     }
     
