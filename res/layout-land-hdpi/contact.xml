@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/campoEstado" android:background="@drawable/shape" android:hint="How are you??"
                 android:layout_gravity="center" android:padding="3dp" android:maxLength="20"
-                android:maxLines="1" android:textSize="10dp" android:textIsSelectable="false"/>
+                android:maxLines="1" android:textSize="10dp" />
     </LinearLayout>
     <ListView
             android:layout_width="wrap_content"
