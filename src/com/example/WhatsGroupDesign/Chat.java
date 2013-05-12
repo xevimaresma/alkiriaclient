@@ -174,8 +174,11 @@ public class Chat extends Activity {
             buffer.get(arrtoken);
             byte[] arrdesti = new byte[64];
             buffer.get(arrdesti);
-            byte[] arrmsg = new byte[64];
-            buffer.get(arrmsg);                
+            byte[] arrremitent = new byte[64];            
+            buffer.get(arrremitent);
+            byte[] arrmsg = new byte[64];            
+            buffer.get(arrmsg);          
+            
             String token=new String(arrtoken).trim();  
             Encryption encripta=new Encryption();
             encripta.setClau(token);
@@ -184,13 +187,14 @@ public class Chat extends Activity {
             } catch (Exception e) { } 
             
             String desti=new String(arrdesti);
-            String dadestxt="Missatge de "+token+" a "+desti+".";
+            String dadestxt="Missatge de "+token+" a "+desti+" desde "+arrremitent+".";
             String missatgeS=encripta.getMsgDesencriptat();
         	TextView tv = new TextView(getApplicationContext());
 			sv.addView(tv);
 			message = (EditText)findViewById(R.id.message);    				
 			
-			tv.setText(missatgeS);    				
+			//tv.setText(missatgeS);
+			tv.setText(new String(dades));
 			//message.setText(dadestxt);
         	
         	/*
@@ -232,7 +236,7 @@ public class Chat extends Activity {
     }
     
     
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(chat);
         Intent intent = getIntent();
@@ -242,6 +246,28 @@ public class Chat extends Activity {
         enviar = (Button)findViewById(R.id.sendMessage);
         //UDPListener servUDP=new UDPListener();
         //servUDP.execute();
+        
+        new Thread() {
+    	    public void run() {
+           	 byte[] buf = new byte[260];
+           	 try {
+           		 DatagramSocket socket;
+           		 DatagramPacket packet;
+           		 socket = new DatagramSocket(9876);
+           		 packet = new DatagramPacket(buf, buf.length);           		 
+           		 while (true) {
+           			 socket.receive(packet);
+           			 message = (EditText)findViewById(R.id.message);
+           			 message.setText(packet.toString());
+           			 Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();
+           		 }
+           	 } catch (Exception e) {    	                		 
+           	 }   
+    	    } 
+    	}.start();
+        
+        
+        
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -291,7 +317,7 @@ public class Chat extends Activity {
                 String token= prefs.getString("tokenAlkiria", null);
                 missEnvia=new MsgSender("",token);
                 try {
-                	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);
+                	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);                	
                 	CommunicationTaskUDPByteActualitza c = new CommunicationTaskUDPByteActualitza();
                     c.execute(missEnviaByte);
                 } catch (Exception e) {
