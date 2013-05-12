@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +41,10 @@ public class Chat extends Activity {
     private Button enviar;
     private String mailContacte;
     private MsgSender missEnvia;
+    
+    byte[] buf = new byte[260];
+    DatagramSocket socket;
+    DatagramPacket packet;
 
     protected class CommunicationTaskUDP extends AsyncTask<byte[], Void, String>{        
         public static final int PORT = 9876;
@@ -62,7 +67,7 @@ public class Chat extends Activity {
     	protected String doInBackground(byte[]... params) {
     		String dadesRebudes;
             try {
-                dadesRebudes=missEnvia.enviamentUDP(params[0]);                
+                dadesRebudes=missEnvia.enviamentUDP(params[0],socket);                
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDP.class.getName()).log(Level.SEVERE, null, ex);
                 dadesRebudes="ERROR";
@@ -119,15 +124,15 @@ public class Chat extends Activity {
     	}	
     }
 */   
-    protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, byte[]>{        
+    protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, Void>{        
         public static final int PORT = 9876;
         
         @Override
-        protected void onPostExecute(byte[] dades) {        	
+        protected void onPostExecute(Void param) {        	
         	/*
         	 * Aquest codi haurà d'anar al UDPListener, però no aconsegueixo que escolti, el UDP de dalt!!!!
 			*/
-        	ByteBuffer buffer = ByteBuffer.wrap(dades);
+        	/*ByteBuffer buffer = ByteBuffer.wrap(dades);
             int tipus = buffer.getInt();
             byte[] arrtoken = new byte[64];
             buffer.get(arrtoken);
@@ -145,28 +150,30 @@ public class Chat extends Activity {
             } catch (Exception e) { } 
             String missatgeS=encripta.getMsgDesencriptat();
             String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
-            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();*/
         }
         
     	@Override
-    	protected byte[] doInBackground(byte[]... params) {
+    	protected Void doInBackground(byte[]... params) {
     		byte[] dadesRebudes;
             try {
-                dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+                //dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+            	missEnvia.enviamentUDPByte(params[0],socket);
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
                 dadesRebudes=null;
             } 
-            return dadesRebudes;
+            //return dadesRebudes;
+            return null;
     	}	
     }
 
-    protected class CommunicationTaskUDPByteActualitza extends AsyncTask<byte[], Void, byte[]>{        
+    protected class CommunicationTaskUDPByteActualitza extends AsyncTask<byte[], Void, Void>{        
         public static final int PORT = 9876;
         
         @Override
-        protected void onPostExecute(byte[] dades) {
-        	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
+        protected void onPostExecute(Void dades) {
+        	/*ScrollView sv = (ScrollView)findViewById(R.id.messageList);
 
 			ByteBuffer buffer = ByteBuffer.wrap(dades);
             int tipus = buffer.getInt();
@@ -191,10 +198,10 @@ public class Chat extends Activity {
             String missatgeS=encripta.getMsgDesencriptat();
         	TextView tv = new TextView(getApplicationContext());
 			sv.addView(tv);
-			message = (EditText)findViewById(R.id.message);    				
+			message = (EditText)findViewById(R.id.message);*/    				
 			
 			//tv.setText(missatgeS);
-			tv.setText(new String(dades));
+			//tv.setText(new String(dades));
 			//message.setText(dadestxt);
         	
         	/*
@@ -223,15 +230,15 @@ public class Chat extends Activity {
         }
         
     	@Override
-    	protected byte[] doInBackground(byte[]... params) {
+    	protected Void doInBackground(byte[]... params) {
     		byte[] dadesRebudes;
             try {
-                dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+                dadesRebudes=missEnvia.enviamentUDPByte(params[0],socket);                
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
                 dadesRebudes=null;
             } 
-            return dadesRebudes;
+            return null;
     	}	
     }
     
@@ -246,22 +253,67 @@ public class Chat extends Activity {
         enviar = (Button)findViewById(R.id.sendMessage);
         //UDPListener servUDP=new UDPListener();
         //servUDP.execute();
+        try {
+	        
+	  		socket = new DatagramSocket(9876);
+	  		socket.setBroadcast(true);
+            socket.setReuseAddress(true);
+	  		//packet = new DatagramPacket(buf, buf.length); 
+        } catch (Exception e){
+        	System.out.println("ERROR "+e.toString());
+        }
         
         new Thread() {
-    	    public void run() {
-           	 byte[] buf = new byte[260];
-           	 try {
-           		 DatagramSocket socket;
-           		 DatagramPacket packet;
-           		 socket = new DatagramSocket(9876);
-           		 packet = new DatagramPacket(buf, buf.length);           		 
+    	    public void run() {           	 
+           	 try {           	
+           		 Log.d("UDP Receiver", "Preparant receptor UDP...");
            		 while (true) {
-           			 socket.receive(packet);
+           			 /*socket.receive(packet);
            			 message = (EditText)findViewById(R.id.message);
            			 message.setText(packet.toString());
-           			 Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();
-           		 }
-           	 } catch (Exception e) {    	                		 
+           			 Log.e("Click: ", "Missatge UDP: "+packet.toString());
+           			 Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();*/
+           			Log.d("UDP Receiver", "Listening...");
+                    byte[] buf = new byte[260];
+                    DatagramPacket packet = new DatagramPacket(buf, buf.length);
+                    socket.receive(packet);
+                    ByteBuffer buffer = ByteBuffer.wrap(packet.getData());
+                    int tipus = buffer.getInt();
+                    if (tipus==3) {
+                    	byte[] arrtoken = new byte[64];
+                        buffer.get(arrtoken);
+                        byte[] arrdesti = new byte[64];
+                        buffer.get(arrdesti);
+                        byte[] arrremitent = new byte[64];            
+                        buffer.get(arrremitent);
+                        byte[] arrmsg = new byte[64];            
+                        buffer.get(arrmsg);          
+                        
+                        String token=new String(arrtoken).trim();
+                        String remitent=new String(arrremitent).trim();
+                        String mistxt=new String(arrmsg).trim();
+                        Encryption encripta=new Encryption();
+                        encripta.setClau(token);
+                        try {
+                        	encripta.decrypt(arrmsg);
+                        } catch (Exception e) { } 
+                        
+                        String desti=new String(arrdesti).trim();
+                        String missatgeS=encripta.getMsgDesencriptat().trim();
+                        String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
+
+                    	Log.d("UDP",dadestxt);
+/*                    	TextView tv = new TextView(getApplicationContext());
+                    	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
+            			sv.addView(tv);
+            			tv.setText(dadestxt);*/
+            			message = (EditText)findViewById(R.id.message);
+            			
+                    }
+                    //Log.d("UDP", "Received: '" + new String(packet.getData()).trim() + "'");
+           		 }           		 
+           	 } catch (Exception e) {  
+           		 System.out.println(e.toString());
            	 }   
     	    } 
     	}.start();

@@ -4,9 +4,13 @@ import java.nio.ByteBuffer;
 import java.io.*;
 import java.net.*;
 
+import com.example.WhatsGroupDesign.Chat;
+import com.example.WhatsGroupDesign.R;
+
 public class MsgSender {
 	//private String servidor="alkiria.xevimr.eu";
-	private String servidor="192.168.1.171";
+	//private String servidor="192.168.1.171";
+	private String servidor="10.0.2.2";
     public static final int TIPUS_ENVIA_MSG = 2;
     public static final int TIPUS_DEMANA_MSG = 3;
     public static final int TIPUS_LLIURA_MSG = 4;
@@ -60,7 +64,7 @@ public class MsgSender {
         encripta.setClau(this.clauEncriptacio);
         encripta.encrypt(this.missatge);
         this.arreglaCadena();            
-        System.out.println(encripta.toString());
+        //System.out.println(encripta.toString());
         sendData=encripta.getMsgEncriptat();                
         
         ByteBuffer buffer;
@@ -89,29 +93,29 @@ public class MsgSender {
         return buffer.array();
     }
     
-    public String enviamentUDP(byte[] msg){
+    public String enviamentUDP(byte[] msg, DatagramSocket socket){
         try {                       
             byte[] sendData = new byte[196];
             byte[] receiveData = new byte[1024]; 
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-            DatagramSocket clientSocket = new DatagramSocket();
-            //InetAddress IPAddress = InetAddress.getByName("alkiria.xevimr.eu");                        
+            //DatagramSocket clientSocket = new DatagramSocket();                       
             InetAddress IPAddress = InetAddress.getByName(servidor);
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
-            clientSocket.send(sendPacket);
-            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            clientSocket.receive(receivePacket);
-            String modifiedSentence = new String(receivePacket.getData());
-            //System.out.println("FROM SERVER:" + modifiedSentence);            
+            //clientSocket.send(sendPacket);
+            socket.send(sendPacket);
+            return "OK";
+            /*DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            clientSocket.receive(receivePacket);           
+            String modifiedSentence = new String(receivePacket.getData());          
             clientSocket.close();
-            return modifiedSentence;
+            return modifiedSentence;*/
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
         }
     }
     
-    public byte[] enviamentUDPByte(byte[] msg){
+    public byte[] enviamentUDPByte(byte[] msg, DatagramSocket socket){
         try {                       
             byte[] sendData = new byte[196];
             byte[] receiveData = new byte[1024];             
@@ -119,10 +123,12 @@ public class MsgSender {
             InetAddress IPAddress = InetAddress.getByName(servidor);                        
             //InetAddress IPAddress = InetAddress.getByName("192.168.1.171");
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
-            clientSocket.send(sendPacket);
-            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            //clientSocket.send(sendPacket);
+            socket.send(sendPacket);
+            /*DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
             clientSocket.receive(receivePacket);
-            return receivePacket.getData();
+            return receivePacket.getData();*/
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
