@@ -23,7 +23,7 @@ public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
     //ProgressDialog dialogo;
-    private Button btnEntrar;
+    //private Button btnEntrar;
     //private String[] contactos = {"Loading phone contacts","Please wait"};
     private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com","xevi@cdmon.com","inane.ensemble@gmail.com","brossa@ramosiso.com"};
     
@@ -96,8 +96,8 @@ public class Contact extends Activity implements View.OnClickListener{
         setContentView(R.layout.contact);
         btnSalir = (Button)findViewById(R.id.salirContact);
         btnSalir.setOnClickListener(this);
-        btnEntrar = (Button)findViewById(R.id.chatear);
-        btnEntrar.setOnClickListener(this);
+        //btnEntrar = (Button)findViewById(R.id.chatear);
+        //btnEntrar.setOnClickListener(this);
         //carregaContactes tCarregaContactes = new carregaContactes();
         //tCarregaContactes.execute();
         ListView lv = (ListView) findViewById(R.id.listaContactos);

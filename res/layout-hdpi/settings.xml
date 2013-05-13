@@ -17,18 +17,9 @@
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mail" android:layout_gravity="center"
-            android:padding="10dp"
-            android:hint="mail.."
-            android:inputType="text"
-            android:background="@drawable/shape" android:layout_marginTop="10dp" android:textSize="15dp"
-            android:maxLines="1" android:maxLength="30" android:minWidth="140dp"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/username" android:layout_gravity="center"
             android:padding="10dp"
-            android:hint="username.."
+            android:hint="mail.."
             android:inputType="text"
             android:textColorHint="#21806d" android:background="@drawable/shape" android:layout_marginTop="10dp"
             android:textSize="15dp" android:maxLength="30" android:maxLines="1" android:minWidth="140dp"/>
@@ -54,7 +45,7 @@
             android:orientation="horizontal"
             android:layout_width="300dp"
             android:layout_height="56dp" android:layout_gravity="center|bottom"
-            android:layout_marginTop="70dp">
+            android:layout_marginTop="100dp">
         <Button
                 android:layout_width="50dp"
                 android:layout_height="30dp"

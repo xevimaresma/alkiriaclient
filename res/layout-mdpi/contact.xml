@@ -22,17 +22,17 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:layout_marginTop="30dp">
         <Button
-                android:layout_width="80dp"
+                android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:text="Logout"
                 android:id="@+id/salirContact" android:layout_gravity="right|center_vertical"
                 android:background="@drawable/shape" android:clickable="true" android:textColor="#292d2c"/>
-        <Button
+        <!--<Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Enter"
                 android:id="@+id/chatear" android:layout_gravity="center" android:background="@drawable/shape"
-                android:layout_weight="1"/>
+                android:layout_weight="1"/>-->
     </LinearLayout>
 
 </LinearLayout>

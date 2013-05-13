@@ -34,18 +34,18 @@
             android:layout_width="match_parent"
             android:layout_height="30dp">
         <Button
-                android:layout_width="80dp"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:text="Logout"
                 android:id="@+id/salirContact" android:layout_gravity="left|center_vertical"
                 android:background="@drawable/shape" android:clickable="true" android:textColor="#292d2c"
                 android:enabled="true" android:layout_weight="0"/>
-        <Button
+        <!--<Button
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
                 android:text="Enter"
                 android:id="@+id/chatear" android:layout_gravity="center|bottom" android:background="@drawable/shape"
-                android:enabled="true"/>
+                android:enabled="true"/>-->
     </LinearLayout>
 
 </LinearLayout>
