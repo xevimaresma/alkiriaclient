@@ -259,7 +259,7 @@ public class Chat extends Activity {
         uiCallback = new Handler () {
             public void handleMessage (Message msg) {
                 TextView tv = new TextView(getApplicationContext());
-                tv.setText(msg.getData().getString("msg"));
+                tv.setText(msg.getData().getString("msg").split("\\|\\|END\\|\\|")[0]);
                 la.addView(tv);
             }
         };
@@ -317,16 +317,17 @@ public class Chat extends Activity {
                         	encripta.decrypt(arrmsg);
                         	missatgeS=encripta.getMsgDesencriptat().trim();
                         } catch (Exception e) { } 
-                        
-                        String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
-
-                    	Log.d("UDP",dadestxt);
-                    	Bundle b = new Bundle();
-                    	b.putString("msg", dadestxt);
-                    	Message msg = new Message();
-                    	msg.setData(b);
-                    	uiCallback.sendMessage(msg);
+                        if (remitent==mailContacte) {
+	                        String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
+	                    	Log.d("UDP",dadestxt);
+	                    	Bundle b = new Bundle();
+	                    	b.putString("msg", dadestxt);
+	                    	Message msg = new Message();
+	                    	msg.setData(b);
+	                    	uiCallback.sendMessage(msg);
+                        } 
                     	//uiCallback.sendEmptyMessage(0);
+	                    
 /*                    	TextView tv = new TextView(getApplicationContext());
                     	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
             			sv.addView(tv);
@@ -361,6 +362,11 @@ public class Chat extends Activity {
                     	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,2);
                     	CommunicationTaskUDP c = new CommunicationTaskUDP();
                         c.execute(missEnviaByte);
+                        Bundle b = new Bundle();
+                    	b.putString("msg", "MISSATGE PROPI: "+missEnvia.getMissatge());
+                    	Message msgPosa = new Message();
+                    	msgPosa.setData(b);
+                    	uiCallback.sendMessage(msgPosa);
                     } catch (Exception e) {
                     	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
                     	e.printStackTrace();
