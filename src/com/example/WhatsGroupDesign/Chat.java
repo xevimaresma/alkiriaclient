@@ -254,14 +254,13 @@ public class Chat extends Activity {
         setContentView(chat);
         Intent intent = getIntent();
         la = (LinearLayout)findViewById(R.id.messageListlayout);
+        la.setOrientation(LinearLayout.VERTICAL);
         
         uiCallback = new Handler () {
             public void handleMessage (Message msg) {
                 TextView tv = new TextView(getApplicationContext());
-                tv.setText("Proves");
+                tv.setText(msg.getData().getString("msg"));
                 la.addView(tv);
-                //sv.removeAllViews();
-    			//sv.addView(tv);
             }
         };
         
@@ -322,7 +321,12 @@ public class Chat extends Activity {
                         String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
 
                     	Log.d("UDP",dadestxt);
-                    	uiCallback.sendEmptyMessage(0);
+                    	Bundle b = new Bundle();
+                    	b.putString("msg", dadestxt);
+                    	Message msg = new Message();
+                    	msg.setData(b);
+                    	uiCallback.sendMessage(msg);
+                    	//uiCallback.sendEmptyMessage(0);
 /*                    	TextView tv = new TextView(getApplicationContext());
                     	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
             			sv.addView(tv);
