@@ -13,12 +13,6 @@
             android:src="@drawable/logo"
             android:layout_marginTop="30px"
             android:adjustViewBounds="false" android:baselineAlignBottom="false"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/campoEstado" android:background="@drawable/shape" android:hint="How are you??"
-            android:layout_gravity="center_horizontal" android:padding="10dp" android:maxLength="20"
-            android:maxLines="1"/>
     <ListView
             android:layout_width="wrap_content"
             android:layout_height="150dp"

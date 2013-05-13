@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:background="@drawable/shape"
-                android:text="Enviar!!" android:longClickable="true" android:padding="5dp" android:clickable="true"/>
+                android:text="@string/enviar" android:longClickable="true" android:padding="5dp" android:clickable="true"/>
 
     </LinearLayout>
 

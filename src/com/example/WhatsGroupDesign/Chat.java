@@ -137,7 +137,7 @@ public class Chat extends Activity {
         @Override
         protected void onPostExecute(Void param) {        	
         	/*
-        	 * Aquest codi haurà d'anar al UDPListener, però no aconsegueixo que escolti, el UDP de dalt!!!!
+        	 * Aquest codi haura d'anar al UDPListener, pero no aconsegueixo que escolti, el UDP de dalt!!!!
 			*/
         	/*ByteBuffer buffer = ByteBuffer.wrap(dades);
             int tipus = buffer.getInt();
@@ -212,7 +212,7 @@ public class Chat extends Activity {
 			//message.setText(dadestxt);
         	
         	/*
-        	 * Aquest codi haurà d'anar al UDPListener, però no aconsegueixo que escolti, el UDP de dalt!!!!
+        	 * Aquest codi haura d'anar al UDPListener, pero no aconsegueixo que escolti, el UDP de dalt!!!!
 			*/
  /*       	ByteBuffer buffer = ByteBuffer.wrap(dades);
             int tipus = buffer.getInt();
