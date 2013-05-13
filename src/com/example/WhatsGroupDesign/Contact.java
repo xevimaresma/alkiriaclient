@@ -25,7 +25,7 @@ public class Contact extends Activity implements View.OnClickListener{
     //ProgressDialog dialogo;
     private Button btnEntrar;
     //private String[] contactos = {"Loading phone contacts","Please wait"};
-    private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com","xevi@cdmon.com"};
+    private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com","xevi@cdmon.com","inane.ensemble@gmail.com","brossa@ramosiso.com"};
     
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> names = new ArrayList<String>();
