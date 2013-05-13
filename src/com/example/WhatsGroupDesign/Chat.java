@@ -318,7 +318,7 @@ public class Chat extends Activity {
                         	missatgeS=encripta.getMsgDesencriptat().trim();
                         } catch (Exception e) { } 
                         if (remitent.equals(mailContacte)) {
-	                        String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
+	                        String dadestxt="<"+remitent+"> "+missatgeS+".";
 	                    	Log.d("UDP",dadestxt);
 	                    	Bundle b = new Bundle();
 	                    	b.putString("msg", dadestxt);
@@ -363,7 +363,7 @@ public class Chat extends Activity {
                     	CommunicationTaskUDP c = new CommunicationTaskUDP();
                         c.execute(missEnviaByte);
                         Bundle b = new Bundle();
-                    	b.putString("msg", "MISSATGE PROPI: "+missEnvia.getMissatge());
+                    	b.putString("msg", "-> "+missEnvia.getMissatge());
                     	Message msgPosa = new Message();
                     	msgPosa.setData(b);
                     	uiCallback.sendMessage(msgPosa);
@@ -391,6 +391,7 @@ public class Chat extends Activity {
             case R.id.undo:
                 Intent i = new Intent(Chat.this, Contact.class);
                 startActivity(i);
+                socket.close();
                 finish();
                 break;
             case R.id.add:
