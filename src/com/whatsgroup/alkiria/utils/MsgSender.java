@@ -8,9 +8,9 @@ import com.example.WhatsGroupDesign.Chat;
 import com.example.WhatsGroupDesign.R;
 
 public class MsgSender {
-	//private String servidor="alkiria.xevimr.eu";
+	private String servidor="alkiria.xevimr.eu";
 	//private String servidor="192.168.1.171";
-	private String servidor="10.0.2.2";
+	//private String servidor="10.0.2.2";
     public static final int TIPUS_ENVIA_MSG = 2;
     public static final int TIPUS_DEMANA_MSG = 3;
     public static final int TIPUS_LLIURA_MSG = 4;

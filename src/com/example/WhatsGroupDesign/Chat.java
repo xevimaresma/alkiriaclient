@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,16 +39,19 @@ import android.widget.Toast;
 import static com.example.WhatsGroupDesign.R.layout.chat;
 
 public class Chat extends Activity {
+	
+	private Handler uiCallback;
 
     private EditText message;
     private Button enviar;
     private String mailContacte;
     private MsgSender missEnvia;
+    LinearLayout la;
     
     byte[] buf = new byte[260];
     DatagramSocket socket;
     DatagramPacket packet;
-
+    
     protected class CommunicationTaskUDP extends AsyncTask<byte[], Void, String>{        
         public static final int PORT = 9876;
         
@@ -247,6 +253,18 @@ public class Chat extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(chat);
         Intent intent = getIntent();
+        la = (LinearLayout)findViewById(R.id.messageListlayout);
+        
+        uiCallback = new Handler () {
+            public void handleMessage (Message msg) {
+                TextView tv = new TextView(getApplicationContext());
+                tv.setText("Proves");
+                la.addView(tv);
+                //sv.removeAllViews();
+    			//sv.addView(tv);
+            }
+        };
+        
         this.mailContacte=intent.getStringExtra("contacto");
         Toast.makeText(getApplicationContext(),mailContacte, Toast.LENGTH_LONG).show();
         message = (EditText)findViewById(R.id.message);
@@ -263,7 +281,7 @@ public class Chat extends Activity {
         	System.out.println("ERROR "+e.toString());
         }
         
-        new Thread() {
+       Thread t = new Thread() {
     	    public void run() {           	 
            	 try {           	
            		 Log.d("UDP Receiver", "Preparant receptor UDP...");
@@ -292,17 +310,19 @@ public class Chat extends Activity {
                         String token=new String(arrtoken).trim();
                         String remitent=new String(arrremitent).trim();
                         String mistxt=new String(arrmsg).trim();
+                        String desti=new String(arrdesti).trim();
+                        String missatgeS="";
                         Encryption encripta=new Encryption();
                         encripta.setClau(token);
                         try {
                         	encripta.decrypt(arrmsg);
+                        	missatgeS=encripta.getMsgDesencriptat().trim();
                         } catch (Exception e) { } 
                         
-                        String desti=new String(arrdesti).trim();
-                        String missatgeS=encripta.getMsgDesencriptat().trim();
                         String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
 
                     	Log.d("UDP",dadestxt);
+                    	uiCallback.sendEmptyMessage(0);
 /*                    	TextView tv = new TextView(getApplicationContext());
                     	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
             			sv.addView(tv);
@@ -316,9 +336,9 @@ public class Chat extends Activity {
            		 System.out.println(e.toString());
            	 }   
     	    } 
-    	}.start();
-        
-        
+    	};
+    	
+    	t.start();
         
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override

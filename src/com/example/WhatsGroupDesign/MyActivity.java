@@ -101,8 +101,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
             try {
                 System.out.println(params[0]);
                 //client = new Socket("localhost",PORT);
-                client = new Socket("10.0.2.2",PORT);
-                //client = new Socket("alkiria.xevimr.eu",PORT);
+                //client = new Socket("10.0.2.2",PORT);
+                client = new Socket("alkiria.xevimr.eu",PORT);
                 out = new DataOutputStream(client.getOutputStream());
                 //Escribim text
                 out.writeInt(params[0].length);
