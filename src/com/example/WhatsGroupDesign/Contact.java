@@ -129,12 +129,12 @@ public class Contact extends Activity implements View.OnClickListener{
             startActivity(m);
             finish();
         }
-        else if (v == btnEntrar){
+        /*else if (v == btnEntrar){
             Intent n = new Intent(Contact.this, Chat.class);
             Toast.makeText(getApplicationContext(),"Enjoy!!!", Toast.LENGTH_LONG).show();
             startActivity(n);
             finish();
-        }
+        }*/
     }
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
