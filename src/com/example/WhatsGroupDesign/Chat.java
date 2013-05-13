@@ -83,94 +83,22 @@ public class Chat extends Activity {
     	}	
     }
     
-/*    protected class UDPListener extends AsyncTask<Void, Void, Void>{        
-        public static final int PORT = 9876;
-        
-        @Override
-    	protected Void doInBackground(Void...params) {
-        	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
-    		while (true) {
-    			byte[] buf = new byte[196];    			
-    			try {
-    				    				    				
-    				DatagramSocket socket = new DatagramSocket(PORT);
-    				DatagramPacket packet = new DatagramPacket(buf, buf.length);
-    				socket.receive(packet);
-    				//Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();
-    				ByteBuffer buffer = ByteBuffer.wrap(packet.getData());
-    				InetAddress IPAddress = packet.getAddress();
-    	            int port = packet.getPort();    	            
-    	            int tipus = buffer.getInt();
-    	            byte[] arrtoken = new byte[64];
-    	            buffer.get(arrtoken);
-    	            byte[] arrdesti = new byte[64];
-    	            buffer.get(arrdesti);
-    	            byte[] arrmsg = new byte[64];
-    	            buffer.get(arrmsg);                
-    	            String token=new String(arrtoken).trim();  
-    	            Encryption encripta=new Encryption();
-    	            encripta.setClau(token);
-    	            String desti=new String(arrdesti);
-    	            //String missatgeS=new String(arrmsg);
-    	            /*try {
-    	            	encripta.decrypt(arrmsg);
-    	            } catch (Exception e) { } 
-    	            String missatgeS=encripta.getMsgDesencriptat();
-    	            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
-    	            String dadestxt="Missatge de "+token+" a "+desti+".";
-    	            TextView tv = new TextView(getApplicationContext());
-    				sv.addView(tv);
-    				message = (EditText)findViewById(R.id.message);    				
-    				
-    				tv.setText(dadestxt);    				
-    				message.setText(dadestxt);
-    				
-    			} catch (Exception e) {    				    				
-    			}
-    		}            
-    	}	
-    }
-*/   
     protected class CommunicationTaskUDPByte extends AsyncTask<byte[], Void, Void>{        
         public static final int PORT = 9876;
         
         @Override
         protected void onPostExecute(Void param) {        	
-        	/*
-        	 * Aquest codi haura d'anar al UDPListener, pero no aconsegueixo que escolti, el UDP de dalt!!!!
-			*/
-        	/*ByteBuffer buffer = ByteBuffer.wrap(dades);
-            int tipus = buffer.getInt();
-            byte[] arrtoken = new byte[64];
-            buffer.get(arrtoken);
-            byte[] arrdesti = new byte[64];
-            buffer.get(arrdesti);
-            byte[] arrmsg = new byte[64];
-            buffer.get(arrmsg);                
-            String token=new String(arrtoken).trim();  
-            Encryption encripta=new Encryption();
-            encripta.setClau(token);
-            String desti=new String(arrdesti);
-            //String missatgeS=new String(arrmsg);
-            try {
-            	encripta.decrypt(arrmsg);
-            } catch (Exception e) { } 
-            String missatgeS=encripta.getMsgDesencriptat();
-            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
-            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();*/
         }
         
     	@Override
     	protected Void doInBackground(byte[]... params) {
     		byte[] dadesRebudes;
-            try {
-                //dadesRebudes=missEnvia.enviamentUDPByte(params[0]);                
+            try {               
             	missEnvia.enviamentUDPByte(params[0],socket);
             } catch (Exception ex) {
                 Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
                 dadesRebudes=null;
             } 
-            //return dadesRebudes;
             return null;
     	}	
     }
@@ -180,60 +108,6 @@ public class Chat extends Activity {
         
         @Override
         protected void onPostExecute(Void dades) {
-        	/*ScrollView sv = (ScrollView)findViewById(R.id.messageList);
-
-			ByteBuffer buffer = ByteBuffer.wrap(dades);
-            int tipus = buffer.getInt();
-            byte[] arrtoken = new byte[64];
-            buffer.get(arrtoken);
-            byte[] arrdesti = new byte[64];
-            buffer.get(arrdesti);
-            byte[] arrremitent = new byte[64];            
-            buffer.get(arrremitent);
-            byte[] arrmsg = new byte[64];            
-            buffer.get(arrmsg);          
-            
-            String token=new String(arrtoken).trim();  
-            Encryption encripta=new Encryption();
-            encripta.setClau(token);
-            try {
-            	encripta.decrypt(arrmsg);
-            } catch (Exception e) { } 
-            
-            String desti=new String(arrdesti);
-            String dadestxt="Missatge de "+token+" a "+desti+" desde "+arrremitent+".";
-            String missatgeS=encripta.getMsgDesencriptat();
-        	TextView tv = new TextView(getApplicationContext());
-			sv.addView(tv);
-			message = (EditText)findViewById(R.id.message);*/    				
-			
-			//tv.setText(missatgeS);
-			//tv.setText(new String(dades));
-			//message.setText(dadestxt);
-        	
-        	/*
-        	 * Aquest codi haura d'anar al UDPListener, pero no aconsegueixo que escolti, el UDP de dalt!!!!
-			*/
- /*       	ByteBuffer buffer = ByteBuffer.wrap(dades);
-            int tipus = buffer.getInt();
-            byte[] arrtoken = new byte[64];
-            buffer.get(arrtoken);
-            byte[] arrdesti = new byte[64];
-            buffer.get(arrdesti);
-            byte[] arrmsg = new byte[64];
-            buffer.get(arrmsg);                
-            String token=new String(arrtoken).trim();  
-            Encryption encripta=new Encryption();
-            encripta.setClau(token);
-            String desti=new String(arrdesti);
-            //String missatgeS=new String(arrmsg);
-            try {
-            	encripta.decrypt(arrmsg);
-            } catch (Exception e) { } 
-            String missatgeS=encripta.getMsgDesencriptat();
-            String dadestxt="Missatge de "+token+" a "+desti+" que diu "+missatgeS;
-            Toast.makeText(getApplicationContext(),dadestxt, Toast.LENGTH_LONG).show();
-*/            
         }
         
     	@Override
@@ -254,11 +128,11 @@ public class Chat extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(chat);
         Intent intent = getIntent();
-        la = (LinearLayout)findViewById(R.id.messageListlayout);
+        la = (LinearLayout)findViewById(R.id.messageListlayout);        
         la.setOrientation(LinearLayout.VERTICAL);
         
         uiCallback = new Handler () {
-            public void handleMessage (Message msg) {
+            public void handleMessage (Message msg) {            	
                 TextView tv = new TextView(getApplicationContext());
                 tv.setTextColor(Color.BLACK);
                 tv.setText(msg.getData().getString("msg").split("\\|\\|END\\|\\|")[0]);
@@ -270,14 +144,10 @@ public class Chat extends Activity {
         Toast.makeText(getApplicationContext(),mailContacte, Toast.LENGTH_LONG).show();
         message = (EditText)findViewById(R.id.message);
         enviar = (Button)findViewById(R.id.sendMessage);
-        //UDPListener servUDP=new UDPListener();
-        //servUDP.execute();
-        try {
-	        
+        try {	        
 	  		socket = new DatagramSocket(9876);
 	  		socket.setBroadcast(true);
             socket.setReuseAddress(true);
-	  		//packet = new DatagramPacket(buf, buf.length); 
         } catch (Exception e){
         	System.out.println("ERROR "+e.toString());
         }
@@ -287,13 +157,8 @@ public class Chat extends Activity {
            	 try {           	
            		 Log.d("UDP Receiver", "Preparant receptor UDP...");
            		 while (true) {
-           			 /*socket.receive(packet);
-           			 message = (EditText)findViewById(R.id.message);
-           			 message.setText(packet.toString());
-           			 Log.e("Click: ", "Missatge UDP: "+packet.toString());
-           			 Toast.makeText(getApplicationContext(),"Rebo paquet UDP Listener", Toast.LENGTH_LONG).show();*/
            			Log.d("UDP Receiver", "Listening...");
-                    byte[] buf = new byte[260];
+                    byte[] buf = new byte[268];
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     socket.receive(packet);
                     ByteBuffer buffer = ByteBuffer.wrap(packet.getData());
@@ -306,7 +171,10 @@ public class Chat extends Activity {
                         byte[] arrremitent = new byte[64];            
                         buffer.get(arrremitent);
                         byte[] arrmsg = new byte[64];            
-                        buffer.get(arrmsg);          
+                        buffer.get(arrmsg);  
+                        int horaLliura=buffer.getInt();
+                        int horaEnvia=buffer.getInt();
+                        Log.d("hora lliurament","H:"+horaLliura+" i "+horaEnvia);
                         
                         String token=new String(arrtoken).trim();
                         String remitent=new String(arrremitent).trim();
@@ -328,43 +196,44 @@ public class Chat extends Activity {
 	                    	msg.setData(b);
 	                    	uiCallback.sendMessage(msg);
                         }
-                    	//uiCallback.sendEmptyMessage(0);
-	                    
-/*                    	TextView tv = new TextView(getApplicationContext());
-                    	ScrollView sv = (ScrollView)findViewById(R.id.messageList);
-            			sv.addView(tv);
-            			tv.setText(dadestxt);*/
-            			message = (EditText)findViewById(R.id.message);
             			
                     }
-                    //Log.d("UDP", "Received: '" + new String(packet.getData()).trim() + "'");
            		 }           		 
            	 } catch (Exception e) {  
            		 System.out.println(e.toString());
            	 }   
-    	    } 
+    	    }     	               
     	};
     	
     	t.start();
+    	
+    	SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
+        String token= prefs.getString("tokenAlkiria", null);
+        missEnvia=new MsgSender("",token);
+        try {
+        	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);                	
+        	CommunicationTaskUDPByteActualitza c = new CommunicationTaskUDPByteActualitza();
+            c.execute(missEnviaByte);
+        } catch (Exception e) {
+        	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
+        	e.printStackTrace();
+        }        
+    	    	
         
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(v == enviar){
                     String msg = message.getText().toString();
-                    //SharedPreferences prefs = getPreferences(MODE_PRIVATE);
                     SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
                     String token= prefs.getString("tokenAlkiria", null);
                     if (token==null) { token="0000"; }
-                    //Toast.makeText(getApplicationContext(),"A enviar ("+token+"): "+msg, Toast.LENGTH_LONG).show();
-                    
-
                     missEnvia=new MsgSender(msg,token);
                     try {
                     	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,2);
                     	CommunicationTaskUDP c = new CommunicationTaskUDP();
                         c.execute(missEnviaByte);
-                        Bundle b = new Bundle();
+                        Bundle b = new Bundle();                      
                     	b.putString("msg", "-> "+missEnvia.getMissatge());
                     	Message msgPosa = new Message();
                     	msgPosa.setData(b);
@@ -373,9 +242,6 @@ public class Chat extends Activity {
                     	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
                     	e.printStackTrace();
                     }
-                    //Toast.makeText(getApplicationContext(),"Enviado o no?", Toast.LENGTH_LONG).show();
-                    
-                    //Aquí tengo que empezar a añadir el contenido al scrollview
                 }
             }
         });
@@ -397,19 +263,19 @@ public class Chat extends Activity {
                 finish();
                 break;
             case R.id.add:
-                //Toast.makeText(getApplicationContext(),"Updating your contacts", Toast.LENGTH_LONG).show();
             	SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE);
                 String token= prefs.getString("tokenAlkiria", null);
                 missEnvia=new MsgSender("",token);
                 try {
+                	la = (LinearLayout)findViewById(R.id.messageListlayout);
+                    la.removeAllViews();
                 	byte[] missEnviaByte=missEnvia.enviaMsg(token,mailContacte,3);                	
                 	CommunicationTaskUDPByteActualitza c = new CommunicationTaskUDPByteActualitza();
                     c.execute(missEnviaByte);
                 } catch (Exception e) {
                 	Toast.makeText(getApplicationContext(),"Error: "+e.toString(), Toast.LENGTH_LONG).show();
                 	e.printStackTrace();
-                }        
-                //finish();
+                }                        
         }
         return false;
     }

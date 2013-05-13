@@ -46,7 +46,6 @@ public class MsgSender {
     }
     
     public byte[] enviaMsg() throws Exception {        
-        //String token="518bd9ed53f1b46ca694ddb5";
         String token="515dd85856861ee247ccf15a";
         String destinatari="prova";
         int tipusMissatge=TIPUS_ENVIA_MSG;
@@ -95,20 +94,10 @@ public class MsgSender {
     
     public String enviamentUDP(byte[] msg, DatagramSocket socket){
         try {                       
-            byte[] sendData = new byte[196];
-            byte[] receiveData = new byte[1024]; 
-            BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-            //DatagramSocket clientSocket = new DatagramSocket();                       
             InetAddress IPAddress = InetAddress.getByName(servidor);
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
-            //clientSocket.send(sendPacket);
             socket.send(sendPacket);
             return "OK";
-            /*DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            clientSocket.receive(receivePacket);           
-            String modifiedSentence = new String(receivePacket.getData());          
-            clientSocket.close();
-            return modifiedSentence;*/
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
@@ -117,17 +106,9 @@ public class MsgSender {
     
     public byte[] enviamentUDPByte(byte[] msg, DatagramSocket socket){
         try {                       
-            byte[] sendData = new byte[196];
-            byte[] receiveData = new byte[1024];             
-            DatagramSocket clientSocket = new DatagramSocket();
             InetAddress IPAddress = InetAddress.getByName(servidor);                        
-            //InetAddress IPAddress = InetAddress.getByName("192.168.1.171");
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
-            //clientSocket.send(sendPacket);
             socket.send(sendPacket);
-            /*DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            clientSocket.receive(receivePacket);
-            return receivePacket.getData();*/
             return null;
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,11 +118,8 @@ public class MsgSender {
     
     public void enviamentUDPByteSenseResposta(byte[] msg){
         try {                       
-            byte[] sendData = new byte[196];
-            byte[] receiveData = new byte[1024];             
             DatagramSocket clientSocket = new DatagramSocket();
             InetAddress IPAddress = InetAddress.getByName(servidor);                        
-            //InetAddress IPAddress = InetAddress.getByName("192.168.1.171");
             DatagramPacket sendPacket = new DatagramPacket(msg, msg.length, IPAddress, port);
             clientSocket.send(sendPacket);
         } catch (Exception e) {
