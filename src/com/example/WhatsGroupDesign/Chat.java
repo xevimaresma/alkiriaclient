@@ -317,7 +317,7 @@ public class Chat extends Activity {
                         	encripta.decrypt(arrmsg);
                         	missatgeS=encripta.getMsgDesencriptat().trim();
                         } catch (Exception e) { } 
-                        if (remitent==mailContacte) {
+                        if (remitent.equals(mailContacte)) {
 	                        String dadestxt="Missatge de "+remitent+" ("+token+") a "+desti+" desde i missatge ("+mistxt+"): "+missatgeS+".";
 	                    	Log.d("UDP",dadestxt);
 	                    	Bundle b = new Bundle();
@@ -325,7 +325,7 @@ public class Chat extends Activity {
 	                    	Message msg = new Message();
 	                    	msg.setData(b);
 	                    	uiCallback.sendMessage(msg);
-                        } 
+                        }
                     	//uiCallback.sendEmptyMessage(0);
 	                    
 /*                    	TextView tv = new TextView(getApplicationContext());
