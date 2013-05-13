@@ -20,6 +20,7 @@ import com.whatsgroup.alkiria.utils.MsgSender;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -259,6 +260,7 @@ public class Chat extends Activity {
         uiCallback = new Handler () {
             public void handleMessage (Message msg) {
                 TextView tv = new TextView(getApplicationContext());
+                tv.setTextColor(Color.BLACK);
                 tv.setText(msg.getData().getString("msg").split("\\|\\|END\\|\\|")[0]);
                 la.addView(tv);
             }
