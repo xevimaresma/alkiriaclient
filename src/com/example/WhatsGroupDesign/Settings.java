@@ -58,10 +58,14 @@ public class Settings extends Activity implements View.OnClickListener {
         if(v ==btnCreate){
             //Toast.makeText(getApplicationContext(), "Pass: " + password.getText(), Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), "ReType: " + retype.getText(), Toast.LENGTH_SHORT).show();
-            if(password.getText().toString().equals(retype.getText().toString())){
-        		createUser();
+        	if(password.getText().toString().equals("") || username.getText().toString().equals("")){
+        		Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya no tenen cap valor.", Toast.LENGTH_SHORT).show();
         	}else{
-                Toast.makeText(getApplicationContext(), "La verificaciÃ³ de password no coincideix.", Toast.LENGTH_SHORT).show();
+        		if(password.getText().toString().equals(retype.getText().toString())){
+        			createUser();
+        		}else{
+        			Toast.makeText(getApplicationContext(), "La verificació de password no coincideix.", Toast.LENGTH_SHORT).show();
+        		}
         	}
         }
     }
