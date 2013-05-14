@@ -35,7 +35,7 @@
             android:id="@+id/campoPass" android:password="true"
             android:background="@drawable/shape"
             android:hint="Password"
-            android:textSize="15dp" android:maxLength="20" android:maxLines="1"
+            android:textSize="15dp" android:maxLength="30" android:maxLines="1"
             android:inputType="text"/>
     <LinearLayout
             android:orientation="horizontal"
