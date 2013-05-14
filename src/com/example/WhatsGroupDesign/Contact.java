@@ -22,9 +22,7 @@ import android.widget.*;
 public class Contact extends Activity implements View.OnClickListener{
 
     private Button btnSalir;
-    //ProgressDialog dialogo;
-    //private Button btnEntrar;
-    //private String[] contactos = {"Loading phone contacts","Please wait"};
+    ProgressDialog pdu;
     private String[] contactos = {"xevimaresma@gmail.com","prova","miquelserrabassa@gmail.com","xevi@cdmon.com","inane.ensemble@gmail.com","brossa@ramosiso.com"};
     
     public ArrayList<String> getNameEmailDetails() {
@@ -63,7 +61,7 @@ public class Contact extends Activity implements View.OnClickListener{
 
         @Override
         protected ArrayList<String> doInBackground(Void... params) {
-        	ArrayList<String> nomsContactes=getNameEmailDetails();
+        	ArrayList<String> nomsContactes=getNameEmailDetails();        	
             return nomsContactes;
         }
 
@@ -78,14 +76,13 @@ public class Contact extends Activity implements View.OnClickListener{
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             	@Override
             	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    /*Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
-                    Log.e("Click: ", " in "+position+" i "+(String) parent.getItemAtPosition(position));*/
                     Intent n = new Intent(Contact.this, Chat.class);
                 	n.putExtra("contacto",(String) parent.getItemAtPosition(position));
                 	startActivity(n);
                 	finish();
                 }
             });
+            pdu.dismiss();
             Contact.this.setProgressBarIndeterminateVisibility(false);
         }
     }
@@ -96,10 +93,6 @@ public class Contact extends Activity implements View.OnClickListener{
         setContentView(R.layout.contact);
         btnSalir = (Button)findViewById(R.id.salirContact);
         btnSalir.setOnClickListener(this);
-        //btnEntrar = (Button)findViewById(R.id.chatear);
-        //btnEntrar.setOnClickListener(this);
-        //carregaContactes tCarregaContactes = new carregaContactes();
-        //tCarregaContactes.execute();
         ListView lv = (ListView) findViewById(R.id.listaContactos);
         lv.setClickable(false);
         lv.setFocusable(false);
@@ -108,8 +101,6 @@ public class Contact extends Activity implements View.OnClickListener{
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         	@Override
         	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               /* Toast.makeText(getApplicationContext(), "Ha pulsado el item " + position, Toast.LENGTH_SHORT).show();
-                Log.e("Click: ", " in "+position);*/
         		Intent n = new Intent(Contact.this, Chat.class);
             	n.putExtra("contacto",(String) parent.getItemAtPosition(position));
             	startActivity(n);
@@ -125,16 +116,10 @@ public class Contact extends Activity implements View.OnClickListener{
     		editor.clear();    		
     		editor.commit();
             Intent m = new Intent(Contact.this, MyActivity.class);
-            Toast.makeText(getApplicationContext(), "See you later!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Logging out...", Toast.LENGTH_SHORT).show();
             startActivity(m);
             finish();
         }
-        /*else if (v == btnEntrar){
-            Intent n = new Intent(Contact.this, Chat.class);
-            Toast.makeText(getApplicationContext(),"Enjoy!!!", Toast.LENGTH_LONG).show();
-            startActivity(n);
-            finish();
-        }*/
     }
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -145,14 +130,21 @@ public class Contact extends Activity implements View.OnClickListener{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.searchContact:
-                ProgressDialog pds = ProgressDialog.show(Contact.this,"Searching!","...Calm!!",true);
-                pds.setCancelable(true);
+            	SharedPreferences.Editor editor= getSharedPreferences("alkiria", MODE_PRIVATE).edit();
+        		editor.clear();    		
+        		editor.commit();
+                Intent m = new Intent(Contact.this, MyActivity.class);
+                Toast.makeText(getApplicationContext(), "Logging out...", Toast.LENGTH_SHORT).show();
+                startActivity(m);
+                finish();
              break;
             case R.id.updateContact:
                 //Determinar la duración y la busqueda, pero este es el código a implementar
-                ProgressDialog pdu = ProgressDialog.show(Contact.this,"Updating!","...Calm!!",true);
+                pdu = ProgressDialog.show(Contact.this,"Updating contacts","Retrieving contact data from your phone. Please be patient.",true);
                 //Determina si el usuario puede cancelar la operación
-                pdu.setCancelable(true);
+                pdu.setCancelable(false);
+                carregaContactes tCarregaContactes = new carregaContactes();
+                tCarregaContactes.execute();
         }
         return false;
     }

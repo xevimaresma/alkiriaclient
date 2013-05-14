@@ -40,28 +40,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
         b2 = (Button)findViewById(R.id.btnAccount);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
-        e1 = (EditText)findViewById(R.id.campoMail);
-        e1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    Toast.makeText(getApplicationContext(), "Introduce your username", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
+        e1 = (EditText)findViewById(R.id.campoMail);        
         e2 = (EditText)findViewById(R.id.campoPass);
-
-        //Dependiendo de donde se situe el cursor aparece el tooltip
-
-        e2.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    Toast.makeText(getApplicationContext(), "Introduces your password", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         
         SharedPreferences prefs = getSharedPreferences("alkiria", MODE_PRIVATE); 
         String restoredText = prefs.getString("loginAlkiria", null);
@@ -83,7 +63,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String dades) {
         	if(dades.equals("LOGIN ERROR")){
-            	Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya introduits no son válids.", Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "Mail or password are not valid. Try again.", Toast.LENGTH_SHORT).show();
         	}else{
         		SharedPreferences.Editor editor= getSharedPreferences("alkiria", MODE_PRIVATE).edit();        		
         		editor.putString("loginAlkiria", e1.getText().toString());
@@ -100,8 +80,6 @@ public class MyActivity extends Activity implements View.OnClickListener {
     	protected String doInBackground(byte[]... params) {
             try {
                 System.out.println(params[0]);
-                //client = new Socket("localhost",PORT);
-                //client = new Socket("10.0.2.2",PORT);
                 client = new Socket("alkiria.xevimr.eu",PORT);
                 out = new DataOutputStream(client.getOutputStream());
                 //Escribim text
@@ -110,7 +88,6 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 out.flush();
                 in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String dades = in.readLine();
-                //System.out.println("Resposta: " + dades);
                 return dades;
             } catch (UnknownHostException ex) {
                 Logger.getLogger(CommunicationTask.class.getName()).log(Level.SEVERE, null, ex);
@@ -140,10 +117,6 @@ public class MyActivity extends Activity implements View.OnClickListener {
             	} else {
             		doLogin();
             	}
-            	//Toast.makeText(getApplicationContext(), "El teu Token es: " + doLogin(), Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent(MyActivity.this, Chat.class);
-                //startActivity(i);
-                //finish();
             }
             else if(v == b2){
                 Intent j = new Intent(MyActivity.this, Settings.class);
@@ -166,7 +139,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
               finish();
             break;
             case R.id.ap2:
-                Toast.makeText(getApplicationContext(),"bYe, bYe!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"You have been successfully logged out.", Toast.LENGTH_SHORT).show();
                 finish();
         }
         return false;

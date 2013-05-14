@@ -56,15 +56,13 @@ public class Settings extends Activity implements View.OnClickListener {
             finish();
         }
         if(v ==btnCreate){
-            //Toast.makeText(getApplicationContext(), "Pass: " + password.getText(), Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), "ReType: " + retype.getText(), Toast.LENGTH_SHORT).show();
         	if(password.getText().toString().equals("") || username.getText().toString().equals("")){
-        		Toast.makeText(getApplicationContext(), "L'usuari o la contrasenya no tenen cap valor.", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getApplicationContext(), "Error: username or password are empty.", Toast.LENGTH_SHORT).show();
         	}else{
         		if(password.getText().toString().equals(retype.getText().toString())){
         			createUser();
         		}else{
-        			Toast.makeText(getApplicationContext(), "La verificació de password no coincideix.", Toast.LENGTH_SHORT).show();
+        			Toast.makeText(getApplicationContext(), "Password and confirmation doesn't match.", Toast.LENGTH_SHORT).show();
         		}
         	}
         }
@@ -107,7 +105,7 @@ public class Settings extends Activity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String dades) {
         	if(dades.equals("LOGIN ERROR")){
-            	Toast.makeText(getApplicationContext(), "Error en la creaciÃ³ de l'usuari.", Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getApplicationContext(), "Error creating user, try again.", Toast.LENGTH_SHORT).show();
         	}else{
         		SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
         		editor.putString("loginAlkiria", username.getText().toString());
@@ -124,8 +122,6 @@ public class Settings extends Activity implements View.OnClickListener {
     	protected String doInBackground(byte[]... params) {
             try {
                 System.out.println(params[0]);
-                //client = new Socket("localhost",PORT);
-                //client = new Socket("10.0.2.2",PORT);
                 client = new Socket("alkiria.xevimr.eu",PORT);
                 out = new DataOutputStream(client.getOutputStream());
                 //Escribim text
@@ -134,7 +130,6 @@ public class Settings extends Activity implements View.OnClickListener {
                 out.flush();
                 in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String dades = in.readLine();
-                //System.out.println("Resposta: " + dades);
                 return dades;
             } catch (UnknownHostException ex) {
                 Logger.getLogger(CommunicationTask.class.getName()).log(Level.SEVERE, null, ex);

@@ -63,9 +63,9 @@ public class Chat extends Activity {
         		message = (EditText)findViewById(R.id.message);
         		message.setText(null);
         	} else if (dades.equals("KO")) {
-        		Toast.makeText(getApplicationContext(),"ERROR! Torna-ho a intentar.", Toast.LENGTH_LONG).show();
+        		Toast.makeText(getApplicationContext(),"Error: please, try again", Toast.LENGTH_LONG).show();
         	} else {
-        		Toast.makeText(getApplicationContext(),"Resposta: "+dades, Toast.LENGTH_LONG).show();
+        		Toast.makeText(getApplicationContext(),"Server response: "+dades, Toast.LENGTH_LONG).show();
         	}
         	
         }
@@ -111,13 +111,11 @@ public class Chat extends Activity {
         }
         
     	@Override
-    	protected Void doInBackground(byte[]... params) {
-    		byte[] dadesRebudes;
+    	protected Void doInBackground(byte[]... params) {    		
             try {
-                dadesRebudes=missEnvia.enviamentUDPByte(params[0],socket);                
+                missEnvia.enviamentUDPByte(params[0],socket);                
             } catch (Exception ex) {
-                Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);
-                dadesRebudes=null;
+                Logger.getLogger(CommunicationTaskUDPByte.class.getName()).log(Level.SEVERE, null, ex);                
             } 
             return null;
     	}	
@@ -155,9 +153,9 @@ public class Chat extends Activity {
        Thread t = new Thread() {
     	    public void run() {           	 
            	 try {           	
-           		 Log.d("UDP Receiver", "Preparant receptor UDP...");
+           		 //Log.d("UDP Receiver", "Preparant receptor UDP...");
            		 while (true) {
-           			Log.d("UDP Receiver", "Listening...");
+           			//Log.d("UDP Receiver", "Listening...");
                     byte[] buf = new byte[268];
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     socket.receive(packet);
@@ -173,8 +171,7 @@ public class Chat extends Activity {
                         byte[] arrmsg = new byte[64];            
                         buffer.get(arrmsg);  
                         int horaLliura=buffer.getInt();
-                        int horaEnvia=buffer.getInt();
-                        Log.d("hora lliurament","H:"+horaLliura+" i "+horaEnvia);
+                        int horaEnvia=buffer.getInt();                        
                         
                         String token=new String(arrtoken).trim();
                         String remitent=new String(arrremitent).trim();
